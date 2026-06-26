@@ -26,7 +26,7 @@ const lessons = [
       `<div class="markdown-preview-box"><blockquote>Foco no código</blockquote></div>`,
   },
   {
-    q: "<b>5. Listas Ordenadas:</b> são criadas usando um número, seguido de um ponto (.) e um espaço antes do texto de cada item. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie uma lista ordenada contendo exatamente os seguintes itens:<b> Primeiro</b><br><b> Segundo</b>",
+    q: "<b>5. Listas Ordenadas:</b> são criadas usando um número, seguido de um ponto (.) e um espaço antes do texto de cada item. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie uma lista ordenada contendo exatamente os seguintes itens:<b> Primeiro</b> e <b> Segundo</b>",
     regex: /^1\.\s+Primeiro\n2\.\s+Segundo$/,
     render: () =>
       `<div class="markdown-preview-box"><ol><li>Primeiro</li><li>Segundo</li></ol></div>`,
