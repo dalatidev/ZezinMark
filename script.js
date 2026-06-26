@@ -1,135 +1,113 @@
 const lessons = [
-  {
-    q: "<b>1. Títulos (Headings):</b> Use de 1 a 6 caracteres '#' seguidos de um espaço antes do seu texto. Crie um título principal H1 escrito 'Ola Mundo'.",
-    regex: /^#\s+Ola Mundo$/i,
-    render: (txt) =>
-      `<div class="markdown-preview-box"><h1>${txt.replace(
-        /^#\s+/,
-        ""
-      )}</h1></div>`,
-  },
-  {
-    q: "<b>2. Negrito (Bold):</b> Envolva o texto com dois asteriscos '**' ou dois sublinhados '__'. Escreva a palavra 'Forte' em negrito.",
-    regex: /^(\*\*|__)Forte\1$/,
-    render: () =>
-      `<div class="markdown-preview-box"><strong>Forte</strong></div>`,
-  },
-  {
-    q: "<b>3. Itálico (Italic):</b> Envolva o texto usando apenas um '*' ou '_'. Deixe a palavra 'Lindo' em itálico.",
-    regex: /^(\*|_)Lindo\1$/,
-    render: () => `<div class="markdown-preview-box"><em>Lindo</em></div>`,
-  },
-  {
-    q: "<b>4. Citações (Blockquote):</b> Use o caractere '>' seguido de um espaço antes de uma frase. Crie uma citação com o texto 'Foco no código'.",
-    regex: /^>\s+Foco no código$/i,
-    render: () =>
-      `<div class="markdown-preview-box"><blockquote>Foco no código</blockquote></div>`,
-  },
-  {
-    q: "<b>5. Listas Ordenadas:</b> Use números seguidos de ponto e espaço. Escreva uma lista contendo exatamente duas linhas estruturadas:<br>1. Primeiro<br>2. Segundo",
-    regex: /^1\.\s+Primeiro\n2\.\s+Segundo$/,
-    render: () =>
-      `<div class="markdown-preview-box"><ol><li>Primeiro</li><li>Segundo</li></ol></div>`,
-  },
-  {
-    q: "<b>6. Listas Não Ordenadas:</b> Use um traço '-' seguido de espaço. Crie um item de lista escrito 'Maçã'.",
-    regex: /^-\s+Maçã$/i,
-    render: () =>
-      `<div class="markdown-preview-box"><ul><li>Maçã</li></ul></div>`,
-  },
-  {
-    q: "<b>7. Código (Code):</b> Envolva pequenos trechos com uma crase (`) de cada lado. Coloque a palavra 'script' formatada como código.",
-    regex: /^`script`$/i,
-    render: () => `<div class="markdown-preview-box"><code>script</code></div>`,
-  },
-  {
-    q: "<b>8. Linha Horizontal (Horizontal Rule):</b> Digite três traços sequenciais '---' sozinhos na linha para criar uma divisória.",
-    regex: /^---$/,
-    render: () => `<div class="markdown-preview-box"><hr></div>`,
-  },
-  {
-    q: "<b>9. Links:</b> Use a estrutura [Texto](URL). Crie um link chamado 'Dalati' que aponte para 'https://instagram.com/dalatidev'.",
-    regex: /^\[Dalati\]\(https:\/\/instagram\.com\/dalatidev\)$/i,
-    render: () =>
-      `<div class="markdown-preview-box"><a href="https://instagram.com/dalatidev" target="_blank" style="color:var(--primary)">Dalati</a></div>`,
-  },
-  {
-    q: "<b>10. Imagens:</b> Começa com uma exclamação: ![Alt Text](URL). Insira uma imagem com o texto alternativo 'Logo' e a URL 'logo.jpg'.",
-    regex: /^!\[Logo\]\(logo\.jpg\)$/i,
-    render: () =>
-      `<div class="markdown-preview-box"><img src="https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=150" alt="Logo"></div>`,
-  },
+    {
+        q: "<b>1. Títulos (Headings):</b> Use de 1 a 6 caracteres '#' seguidos de um espaço antes do seu texto. Crie um título principal H1 escrito 'Ola Mundo'.",
+        regex: /^#\s+Ola Mundo$/i,
+        render: (txt) => `<div class="markdown-preview-box"><h1>${txt.replace(/^#\s+/, '')}</h1></div>`
+    },
+    {
+        q: "<b>2. Negrito (Bold):</b> Envolva o texto com dois asteriscos '**' ou dois sublinhados '__'. Escreva a palavra 'Forte' in negrito.",
+        regex: /^(\*\*|__)Forte\1$/,
+        render: () => `<div class="markdown-preview-box"><strong>Forte</strong></div>`
+    },
+    {
+        q: "<b>3. Itálico (Italic):</b> Envolva o texto usando apenas um '*' ou '_'. Deixe a palavra 'Lindo' em itálico.",
+        regex: /^(\*|_)Lindo\1$/,
+        render: () => `<div class="markdown-preview-box"><em>Lindo</em></div>`
+    },
+    {
+        q: "<b>4. Citações (Blockquote):</b> Use o caractere '>' seguido de um espaço antes de uma frase. Crie uma citação com o texto 'Foco no código'.",
+        regex: /^>\s+Foco no código$/i,
+        render: () => `<div class="markdown-preview-box"><blockquote>Foco no código</blockquote></div>`
+    },
+    {
+        q: "<b>5. Listas Ordenadas:</b> Use números seguidos de ponto e espaço. Escreva uma lista contendo exatamente duas linhas estruturadas:<br>1. Primeiro<br>2. Segundo",
+        regex: /^1\.\s+Primeiro\n2\.\s+Segundo$/,
+        render: () => `<div class="markdown-preview-box"><ol><li>Primeiro</li><li>Segundo</li></ol></div>`
+    },
+    {
+        q: "<b>6. Listas Não Ordenadas:</b> Use um traço '-' seguido de espaço. Crie um item de lista escrito 'Maçã'.",
+        regex: /^-\s+Maçã$/i,
+        render: () => `<div class="markdown-preview-box"><ul><li>Maçã</li></ul></div>`
+    },
+    {
+        q: "<b>7. Código (Code):</b> Envolva pequenos trechos com uma crase (\`) de cada lado. Coloque a palavra 'script' formatada como código.",
+        regex: /^`script`$/i,
+        render: () => `<div class="markdown-preview-box"><code>script</code></div>`
+    },
+    {
+        q: "<b>8. Linha Horizontal (Horizontal Rule):</b> Digite três traços sequenciais '---' sozinhos na linha para criar uma divisória.",
+        regex: /^---$/,
+        render: () => `<div class="markdown-preview-box"><hr></div>`
+    },
+    {
+        q: "<b>9. Links:</b> Use a estrutura [Texto](URL). Crie um link chamado 'Dalati' que aponte para 'https://instagram.com/dalatidev'.",
+        regex: /^\[Dalati\]\(https:\/\/instagram\.com\/dalatidev\)$/i,
+        render: () => `<div class="markdown-preview-box"><a href="https://instagram.com/dalatidev" target="_blank" style="color:var(--primary)">Dalati</a></div>`
+    },
+    {
+        q: "<b>10. Imagens:</b> Começa com uma exclamação: ![Alt Text](URL). Insira uma imagem com o texto alternativo 'Logo' e a URL 'logo.jpg'.",
+        regex: /^!\[Logo\]\(logo\.jpg\)$/i,
+        render: () => `<div class="markdown-preview-box"><img src="https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=150" alt="Logo"></div>`
+    }
 ];
 
 const examQuestions = [
-  {
-    q: "<b>Prova Q1:</b> Como estruturamos um título secundário (H2) contendo a palavra 'Subtitulo'?",
-    regex: /^##\s+Subtitulo$/i,
-  },
-  {
-    q: "<b>Prova Q2:</b> Demonstre como aplicar Negrito e Itálico simultaneamente na palavra 'Markdown' usando três asteriscos.",
-    regex: /^\*\*\*Markdown\*\*\*$/,
-  },
+    { q: "<b>Prova Q1:</b> Como estruturamos um título secundário (H2) contendo a palavra 'Subtitulo'?", regex: /^##\s+Subtitulo$/i },
+    { q: "<b>Prova Q2:</b> Demonstre como aplicar Negrito e Itálico simultaneamente na palavra 'Markdown' usando três asteriscos.", regex: /^\*\*\*Markdown\*\*\*$/ }
 ];
 
-// Gerenciador de Estado do App
 let state = {
-  userName: localStorage.getItem("md_name") || "",
-  index: parseInt(localStorage.getItem("md_index")) || 0,
-  currentStep: "naming", // 'naming' | 'intro' | 'learning' | 'exam' | 'complete'
-  examScore: 0,
+    userName: localStorage.getItem('md_name') || '',
+    index: parseInt(localStorage.getItem('md_index')) || 0,
+    currentStep: 'naming', 
+    examScore: 0
 };
 
-const chatArea = document.getElementById("chat-area");
-const userInput = document.getElementById("user-input");
-const feedbackStatus = document.getElementById("feedback-status");
-const feedbackText = document.getElementById("feedback-text");
-const btnSend = document.getElementById("btn-send");
-const navControls = document.getElementById("nav-controls");
-const statusLabel = document.getElementById("lesson-status");
+const chatArea = document.getElementById('chat-area');
+const userInput = document.getElementById('user-input');
+const feedbackStatus = document.getElementById('feedback-status');
+const feedbackText = document.getElementById('feedback-text');
+const btnSend = document.getElementById('btn-send');
+const navControls = document.getElementById('nav-controls');
+const statusLabel = document.getElementById('lesson-status');
 
 window.onload = () => {
-  applyTheme(localStorage.getItem("md_theme") || "light");
-  if (!state.userName) {
-    state.currentStep = "naming";
-    askName();
-  } else {
-    state.currentStep = "learning";
-    welcomeBack();
-  }
+    applyTheme(localStorage.getItem('md_theme') || 'light');
+    // BLINDAGEM DE STRING: Garante que nomes nulos ou vazios forcem a identificação
+    if (!state.userName || state.userName.trim() === "" || state.userName === "null") {
+        state.currentStep = 'naming';
+        askName();
+    } else {
+        state.currentStep = 'learning';
+        welcomeBack();
+    }
 };
 
-// --- ROLAGEM AUTOMÁTICA DO CHAT ---
 function scrollToBottom() {
-  // Timeout pequeno garante que o elemento já foi renderizado e pintado na DOM
-  setTimeout(() => {
-    chatArea.scrollTop = chatArea.scrollHeight;
-  }, 50);
+    // Ajustado tempo para garantir renderização fluida em viewports mobile
+    setTimeout(() => {
+        chatArea.scrollTop = chatArea.scrollHeight;
+    }, 80);
 }
 
 function askName() {
-  statusLabel.textContent = "Identificação";
-  addMsg(
-    "bot",
-    "Olá! Sou o <b>Zezin</b>. Antes de partirmos para o código, como posso chamar você?"
-  );
-  userInput.placeholder = "Seu nome ou apelido...";
-  navControls.style.display = "none";
-  resetValidationState();
+    state.currentStep = 'naming';
+    statusLabel.textContent = "Identificação";
+    addMsg("bot", "Olá! Sou o <b>Zezin</b>. Antes de partirmos para o código, como posso chamar você?");
+    userInput.placeholder = "Seu nome ou apelido...";
+    navControls.style.display = 'none';
+    resetValidationState();
 }
 
 function introZezin() {
-  state.currentStep = "intro";
-  statusLabel.textContent = "Apresentação";
-  addMsg("bot", `Muito prazer, ${state.userName}! Eu sou o <b>Zezin</b>.`);
-  addMsg(
-    "bot",
-    `Importante alinhar as expectativas: Eu <b>não</b> sou uma Inteligência Artificial. Sou um assistente automatizado bem direto ao ponto, programado do zero pelo desenvolvedor <b>Dalati Lacerda Azevedo</b>.`
-  );
-
-  const row = document.createElement("div");
-  row.className = "message-row";
-  row.innerHTML = `
+    state.currentStep = 'intro';
+    statusLabel.textContent = "Apresentação";
+    addMsg("bot", `Muito prazer, ${state.userName}! Eu sou o <b>Zezin</b>.`);
+    addMsg("bot", `Importante alinhar as expectativas: Eu <b>não</b> sou uma Inteligência Artificial. Sou um assistente automatizado bem direto ao ponto, programado do zero pelo desenvolvedor <b>Dalati Lacerda Azevedo</b>.`);
+    
+    const row = document.createElement('div');
+    row.className = 'message-row';
+    row.innerHTML = `
         <div class="message-bubble bot-style">
             Tudo pronto para dominarmos a sintaxe básica completa do Markdown?
             <div class="action-button-container">
@@ -137,283 +115,238 @@ function introZezin() {
             </div>
         </div>
     `;
-  chatArea.appendChild(row);
-  scrollToBottom();
-  lucide.createIcons();
+    chatArea.appendChild(row);
+    scrollToBottom();
+    lucide.createIcons();
 
-  userInput.disabled = true;
-  btnSend.disabled = true;
+    userInput.disabled = true;
+    btnSend.disabled = true;
 
-  document.getElementById("start-journey-btn").onclick = () => {
-    userInput.disabled = false;
-    startLessons();
-  };
+    document.getElementById('start-journey-btn').onclick = () => {
+        userInput.disabled = false;
+        startLessons();
+    };
 }
 
 function welcomeBack() {
-  statusLabel.textContent = "Retorno";
-  addMsg(
-    "bot",
-    `Seja bem-vindo de volta, ${state.userName}! Pronto para continuar de onde parou?`
-  );
-
-  const row = document.createElement("div");
-  row.className = "message-row";
-  row.innerHTML = `
+    statusLabel.textContent = "Retorno";
+    addMsg("bot", `Seja bem-vindo de volta, ${state.userName}! Pronto para continuar de onde parou?`);
+    
+    const row = document.createElement('div');
+    row.className = 'message-row';
+    row.innerHTML = `
         <div class="message-bubble bot-style">
             <div class="action-button-container">
                 <button class="prime-btn" id="resume-journey-btn">Continuar Aprendizado <i data-lucide="play" size="16"></i></button>
             </div>
         </div>
     `;
-  chatArea.appendChild(row);
-  scrollToBottom();
-  lucide.createIcons();
+    chatArea.appendChild(row);
+    scrollToBottom();
+    lucide.createIcons();
 
-  userInput.disabled = true;
-  btnSend.disabled = true;
+    userInput.disabled = true;
+    btnSend.disabled = true;
 
-  document.getElementById("resume-journey-btn").onclick = () => {
-    userInput.disabled = false;
-    startLessons();
-  };
+    document.getElementById('resume-journey-btn').onclick = () => {
+        userInput.disabled = false;
+        startLessons();
+    };
 }
 
 function startLessons() {
-  state.currentStep = "learning";
-  userInput.placeholder =
-    "Digite em Markdown... (Shift+Enter para pular linha)";
-  navControls.style.display = "flex";
-
-  // CORREÇÃO: Não apaga mais o chatArea ao iniciar
-  loadLesson();
+    state.currentStep = 'learning';
+    userInput.placeholder = "Digite em Markdown...";
+    navControls.style.display = 'flex';
+    loadLesson();
 }
 
 function loadLesson() {
-  // CORREÇÃO CRÍTICA DE VALIDAÇÃO: Limpa campos e força reset visual do estado anterior ao carregar lição
-  userInput.value = "";
-  userInput.style.height = "auto";
-  resetValidationState();
+    userInput.value = '';
+    userInput.style.height = 'auto';
+    resetValidationState();
 
-  if (state.index >= lessons.length) {
-    startExam();
-    return;
-  }
-  statusLabel.textContent = `Lição ${state.index + 1} de ${lessons.length}`;
-  addMsg("bot", lessons[state.index].q);
-  localStorage.setItem("md_index", state.index);
+    if (state.index >= lessons.length) {
+        startExam();
+        return;
+    }
+    statusLabel.textContent = `Lição ${state.index + 1} de ${lessons.length}`;
+    addMsg("bot", lessons[state.index].q);
+    localStorage.setItem('md_index', state.index);
 }
 
-// --- CENTRAL DE VALIDAÇÃO EM TEMPO REAL CORRIGIDA ---
-userInput.addEventListener("input", () => {
-  const val = userInput.value;
+// Monitoramento reativo
+userInput.addEventListener('input', () => {
+    const val = userInput.value;
+    userInput.style.height = 'auto';
+    userInput.style.height = userInput.scrollHeight + 'px';
 
-  userInput.style.height = "auto";
-  userInput.style.height = userInput.scrollHeight + "px";
-
-  if (state.currentStep === "naming") {
-    const nameClean = val.trim();
-    if (nameClean.length >= 2) {
-      setFeedback(
-        "correct",
-        "Nome válido detectado! Pronto para enviar.",
-        false
-      );
-    } else {
-      setFeedback("info", "Digite pelo menos 2 caracteres...", true);
+    // FIX MOBILE: Ativa o botão enviar dinamicamente para cliques por touch na identificação
+    if (state.currentStep === 'naming') {
+        if (val.trim().length >= 2) {
+            setFeedback("correct", "Nome válido! Toque para enviar.", false);
+        } else {
+            setFeedback("info", "Digite pelo menos 2 caracteres...", true);
+        }
+        return; 
     }
-    return;
-  }
 
-  if (val === "") {
-    resetValidationState();
-    return;
-  }
+    if (val === "") {
+        resetValidationState();
+        return;
+    }
 
-  const current =
-    state.currentStep === "exam"
-      ? examQuestions[state.examScore]
-      : lessons[state.index];
-
-  if (current && current.regex.test(val)) {
-    setFeedback(
-      "correct",
-      "Sintaxe correta detectada! Pronto para enviar.",
-      false
-    );
-  } else {
-    setFeedback(
-      "incorrect",
-      "Sintaxe inválida ou pendente para este desafio.",
-      true
-    );
-  }
+    const current = state.currentStep === 'exam' ? examQuestions[state.examScore] : lessons[state.index];
+    if (current && current.regex.test(val)) {
+        setFeedback("correct", "Sintaxe correta detectada! Pronto para enviar.", false);
+    } else {
+        setFeedback("incorrect", "Sintaxe inválida ou pendente para este desafio.", true);
+    }
 });
 
-// Captura do Enter
-userInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    if (!btnSend.disabled) submitData();
-  }
+userInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        if (!btnSend.disabled) submitData();
+    }
 });
 
 btnSend.onclick = () => {
-  submitData();
+    submitData();
 };
 
 function submitData() {
-  const val = userInput.value;
-
-  if (state.currentStep === "naming") {
-    state.userName = val.trim();
-    localStorage.setItem("md_name", state.userName);
-    addMsg("user", state.userName);
-    userInput.value = "";
-    introZezin();
-    return;
-  }
-
-  addMsg("user", val);
-
-  if (state.currentStep === "exam") {
-    state.examScore++;
-    if (state.examScore >= examQuestions.length) {
-      showFinalResult();
-    } else {
-      addMsg("bot", "Análise computada! Próxima questão da avaliação.");
-      setTimeout(() => {
-        addMsg("bot", examQuestions[state.examScore].q);
-        resetValidationState();
-      }, 600);
+    const val = userInput.value;
+    
+    if (state.currentStep === 'naming') {
+        state.userName = val.trim();
+        localStorage.setItem('md_name', state.userName);
+        addMsg("user", state.userName);
+        userInput.value = '';
+        introZezin();
+        return;
     }
-  } else {
-    const renderHtml = lessons[state.index].render(val);
-    addMsg("bot", `Renderização HTML resultante: ${renderHtml}`);
-    state.index++;
-    setTimeout(loadLesson, 1000);
-  }
 
-  userInput.value = "";
-  userInput.style.height = "auto";
+    addMsg("user", val);
+    
+    if (state.currentStep === 'exam') {
+        state.examScore++;
+        if (state.examScore >= examQuestions.length) {
+            showFinalResult();
+        } else {
+            addMsg("bot", "Análise computada! Próxima questão da avaliação.");
+            setTimeout(() => {
+                addMsg("bot", examQuestions[state.examScore].q);
+                resetValidationState();
+            }, 600);
+        }
+    } else {
+        const renderHtml = lessons[state.index].render(val);
+        addMsg("bot", `Renderização HTML resultante: ${renderHtml}`);
+        state.index++;
+        setTimeout(loadLesson, 1000);
+    }
+    
+    userInput.value = '';
+    userInput.style.height = 'auto';
 }
 
 function startExam() {
-  state.currentStep = "exam";
-  state.examScore = 0;
-  statusLabel.textContent = "Avaliação Final";
-  addMsg(
-    "bot",
-    "🎯 <b>Chegamos à Prova Final!</b> Agora vamos consolidar seu conhecimento sem as caixas de visualização prévia. Boa sorte!"
-  );
-  setTimeout(() => {
-    addMsg("bot", examQuestions[0].q);
-    resetValidationState();
-  }, 800);
+    state.currentStep = 'exam';
+    state.examScore = 0;
+    statusLabel.textContent = "Avaliação Final";
+    addMsg("bot", "🎯 <b>Chegamos à Prova Final!</b> Agora vamos consolidar seu conhecimento sem as caixas de visualização prévia. Boa sorte!");
+    setTimeout(() => {
+        addMsg("bot", examQuestions[0].q);
+        resetValidationState();
+    }, 800);
 }
 
 function showFinalResult() {
-  state.currentStep = "complete";
-  navControls.style.display = "none";
-  statusLabel.textContent = "Concluído";
-  addMsg("bot", "🏆 <b>Exame concluído com sucesso!</b>");
-  addMsg(
-    "bot",
-    `Você assimilou perfeitamente todos os conceitos estruturais básicos da linguagem.`
-  );
-  addMsg(
-    "bot",
-    `Muito obrigado por treinar com o meu sistema. Este projeto foi inteiramente estruturado por <b>Dalati Lacerda Azevedo</b>.`
-  );
-  addMsg(
-    "bot",
-    `Acompanhe outros projetos e novidades no Instagram: <a href="https://instagram.com/dalatidev" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">@dalatidev <i data-lucide="instagram" size="16"></i></a>`
-  );
-
-  lucide.createIcons();
-  resetValidationState();
+    state.currentStep = 'complete';
+    navControls.style.display = 'none';
+    statusLabel.textContent = "Concluído";
+    addMsg("bot", "🏆 <b>Exame concluído com sucesso!</b>");
+    addMsg("bot", `Você assimilou perfeitamente todos os conceitos estruturais básicos da linguagem.`);
+    addMsg("bot", `Muito obrigado por treinar com o meu sistema. Este projeto foi inteiramente estruturado por <b>Dalati Lacerda Azevedo</b>.`);
+    addMsg("bot", `Acompanhe outros projetos no Instagram: <a href="https://instagram.com/dalatidev" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">@dalatidev <i data-lucide="instagram" size="16"></i></a>`);
+    lucide.createIcons();
+    resetValidationState();
 }
 
-// --- UTILS DE FEEDBACK ---
 function setFeedback(type, text, isDisableButton) {
-  feedbackText.textContent = text;
-  feedbackStatus.className = `feedback-status ${type}`;
-  btnSend.disabled = isDisableButton;
-
-  let iconName = "info";
-  if (type === "correct") iconName = "check-circle-2";
-  if (type === "incorrect") iconName = "alert-circle";
-
-  const iconEl = feedbackStatus.querySelector("i");
-  if (iconEl) {
-    iconEl.setAttribute("data-lucide", iconName);
-    lucide.createIcons();
-  }
+    feedbackText.textContent = text;
+    feedbackStatus.className = `feedback-status ${type}`;
+    btnSend.disabled = isDisableButton;
+    
+    let iconName = "info";
+    if (type === "correct") iconName = "check-circle-2";
+    if (type === "incorrect") iconName = "alert-circle";
+    
+    const iconEl = feedbackStatus.querySelector('i');
+    if (iconEl) {
+        iconEl.setAttribute('data-lucide', iconName);
+        lucide.createIcons();
+    }
 }
 
 function resetValidationState() {
-  setFeedback("info", "Aguardando entrada...", true);
+    setFeedback("info", "Aguardando entrada...", true);
 }
 
 function addMsg(type, text) {
-  const row = document.createElement("div");
-  row.className = "message-row";
-
-  const bubble = document.createElement("div");
-  bubble.className = `message-bubble ${type}-style`;
-  bubble.innerHTML = text;
-
-  row.appendChild(bubble);
-  chatArea.appendChild(row);
-
-  // CORREÇÃO DO SCROLL: Agora invoca o posicionamento toda vez que entra conteúdo
-  scrollToBottom();
-  lucide.createIcons();
+    const row = document.createElement('div');
+    row.className = 'message-row';
+    
+    const bubble = document.createElement('div');
+    bubble.className = `message-bubble ${type}-style`;
+    bubble.innerHTML = text;
+    
+    row.appendChild(bubble);
+    chatArea.appendChild(row);
+    
+    scrollToBottom();
+    lucide.createIcons();
 }
 
-// Temas
-document.getElementById("theme-toggle").onclick = () => {
-  const current = document.documentElement.getAttribute("data-theme");
-  applyTheme(current === "light" ? "dark" : "light");
+// Alternador de Temas
+document.getElementById('theme-toggle').onclick = () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'light' ? 'dark' : 'light');
 };
 
 function applyTheme(t) {
-  document.documentElement.setAttribute("data-theme", t);
-  localStorage.setItem("md_theme", t);
-  const icon = document.getElementById("theme-icon");
-  if (icon) {
-    icon.setAttribute("data-lucide", t === "dark" ? "sun" : "moon");
-    lucide.createIcons();
-  }
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('md_theme', t);
+    const icon = document.getElementById('theme-icon');
+    if (icon) {
+        icon.setAttribute('data-lucide', t === 'dark' ? 'sun' : 'moon');
+        lucide.createIcons();
+    }
 }
 
-// CORREÇÃO: "Reiniciar tudo" agora reinicia apenas a CONVERSA mantendo o nome do usuário salvo
-document.getElementById("btn-reset").onclick = () => {
-  if (
-    confirm(
-      "Zezin vai reiniciar a conversa com você do início. Deseja continuar?"
-    )
-  ) {
-    state.index = 0;
-    state.isExam = false;
-    state.examScore = 0;
-    localStorage.setItem("md_index", 0);
-    chatArea.innerHTML = "";
-    welcomeBack();
-  }
+// Reiniciar Conversa Mantendo Usuário
+document.getElementById('btn-reset').onclick = () => {
+    if (confirm("Zezin vai reiniciar a conversa com você do início. Deseja continuar?")) {
+        state.index = 0;
+        state.examScore = 0;
+        localStorage.setItem('md_index', 0);
+        chatArea.innerHTML = '';
+        welcomeBack();
+    }
 };
 
-// CORREÇÃO: Botão voltar não apaga mais destrutivamente o histórico global
-document.getElementById("btn-back").onclick = () => {
-  if (state.index > 0) {
-    state.index--;
-    addMsg("bot", "↩️ Voltando para a lição anterior...");
-    loadLesson();
-  }
+// Navegação entre lições
+document.getElementById('btn-back').onclick = () => { 
+    if (state.index > 0) { 
+        state.index--; 
+        addMsg("bot", "↩️ Voltando para a lição anterior...");
+        loadLesson(); 
+    } 
 };
 
-document.getElementById("btn-skip").onclick = () => {
-  state.index++;
-  addMsg("bot", "⏭️ Pulando desafio...");
-  loadLesson();
+document.getElementById('btn-skip').onclick = () => { 
+    state.index++; 
+    addMsg("bot", "⏭️ Pulando desafio...");
+    loadLesson(); 
 };
