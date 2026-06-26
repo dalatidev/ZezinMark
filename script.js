@@ -48,10 +48,10 @@ const lessons = [
     render: () => `<div class="markdown-preview-box"><hr></div>`,
   },
   {
-    q: "<b>9. Links:</b> são criados usando a estrutura [Texto](URL), em que o texto entre colchetes é o que será exibido e a URL entre parênteses é o endereço para onde o link irá apontar.<br><br>Desafio: Crie um link com o texto:<b> Comida</b> apontando para a URL:<b> https://cuscuz.com.br</b>",
-    regex: /^\[Comida\]\(https:\/\/cuscuz\.com\.br\)$/i,
+    q: "<b>9. Links:</b> são criados usando a estrutura [Texto](URL), em que o texto entre colchetes é o que será exibido e a URL entre parênteses é o endereço para onde o link irá apontar.<br><br>Desafio: Crie um link com o texto:<b> Comida</b> apontando para a URL:<b> arrozdecuxa.com</b>",
+    regex: /^\[Comida\]\(arrozdecuxa\.com\)$/i,
     render: () =>
-      `<div class="markdown-preview-box"><a href="https://dalatidev.vercel.app" target="_blank" style="color:var(--primary)">Zezin</a></div>`,
+      `<div class="markdown-preview-box"><a href="https://www.tudogostoso.com.br/receita/9547-arroz-de-cuxa-maranhense.html" target="_blank" style="color:var(--primary)">Comida</a></div>`,
   },
   {
     q: "<b>10. Imagens:</b> são inseridas usando a estrutura ![Texto alternativo](URL). O texto alternativo descreve a imagem e a URL indica o caminho ou endereço do arquivo da imagem.<br><br>Desafio: Insira uma imagem com o texto alternativo:<b> Imagem</b> utilizando a URL:<b> zezin.png</b>",
