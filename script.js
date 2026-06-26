@@ -288,11 +288,26 @@ userInput.addEventListener("input", () => {
 });
 
 userInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    if (!btnSend.disabled) submitData();
-  }
-});
+    if (e.key === "Enter") {
+      // Se o usuário pressionar Shift + Enter, permite quebrar a linha normalmente
+      if (e.shiftKey) {
+        return; 
+      }
+      
+      // Pega o que está escrito até agora
+      const val = userInput.value;
+      
+      // Se o usuário estiver no meio de uma lista (começando com '-' ou '1.', '2.', etc.)
+      // o Enter apenas quebra a linha no celular para ele digitar o próximo item
+      if (val.startsWith('-') || /^\d+\./.test(val)) {
+        return; 
+      }
+  
+      // Se não for uma lista e for apenas uma linha normal, envia os dados
+      e.preventDefault();
+      if (!btnSend.disabled) submitData();
+    }
+  });
 
 btnSend.onclick = () => {
   submitData();
