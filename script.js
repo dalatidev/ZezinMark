@@ -1,7 +1,7 @@
 const lessons = [
   {
-    q: "<b>1. Títulos:</b> são criados usando o caractere # no início da linha. A quantidade de # define o nível do título: # é um título H1 (o maior), ## é H2, ### é H3, e assim por diante, até ###### (H6). Sempre deixe um espaço entre o último # e o texto.<br><br>Desafio: Crie um título principal (H1) com o texto:<b> Olá Mundo</b>",
-    regex: /^#\s+Olá Mundo$/i,
+    q: "<b>1. Títulos:</b> são criados usando o caractere # no início da linha. A quantidade de # define o nível do título: # é um título H1 (o maior), ## é H2, ### é H3, e assim por diante, até ###### (H6). Sempre deixe um espaço entre o último # e o texto.<br><br>Desafio: Crie um título principal (H1) com o texto:<b> Oba minha gente</b>",
+    regex: /^#\s+Oba minha gente$/i,
     render: (txt) =>
       `<div class="markdown-preview-box"><h1>${txt.replace(
         /^#\s+/,
@@ -9,33 +9,33 @@ const lessons = [
       )}</h1></div>`,
   },
   {
-    q: "<b>2. Negrito:</b> são criados envolvendo o texto com dois asteriscos (**) ou dois sublinhados (__). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Forte</b> em negrito utilizando uma das duas formas disponíveis.",
-    regex: /^(\*\*|__)Forte\1$/,
+    q: "<b>2. Negrito:</b> são criados envolvendo o texto com dois asteriscos (**) ou dois sublinhados (__). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Oxente</b> em negrito utilizando uma das duas formas disponíveis.",
+    regex: /^(\*\*|__)Oxente\1$/,
     render: () =>
-      `<div class="markdown-preview-box"><strong>Forte</strong></div>`,
+      `<div class="markdown-preview-box"><strong>Oxente</strong></div>`,
   },
   {
-    q: "<b>3. Itálico:</b> são criados envolvendo o texto com um asterisco (*) ou um sublinhado (_). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Lindo</b> em itálico utilizando uma das duas formas disponíveis.",
-    regex: /^(\*|_)Lindo\1$/,
-    render: () => `<div class="markdown-preview-box"><em>Lindo</em></div>`,
+    q: "<b>3. Itálico:</b> são criados envolvendo o texto com um asterisco (*) ou um sublinhado (_). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Arretado</b> em itálico utilizando uma das duas formas disponíveis.",
+    regex: /^(\*|_)Arretado\1$/,
+    render: () => `<div class="markdown-preview-box"><em>Arretado</em></div>`,
   },
   {
-    q: "<b>4. Citações:</b> são criadas usando o caractere maior que (>) no início da linha, seguido de um espaço antes do texto. Esse recurso é usado para destacar frases, trechos ou citações.<br><br>Desafio: Crie uma citação com o texto:<b> Foco no código</b>",
-    regex: /^>\s+Foco no código$/i,
+    q: "<b>4. Citações:</b> são criadas usando o caractere maior que (>) no início da linha, seguido de um espaço antes do texto. Esse recurso é usado para destacar frases, trechos ou citações.<br><br>Desafio: Crie uma citação com o texto:<b> Bora simbora</b>",
+    regex: /^>\s+Bora simbora$/i,
     render: () =>
-      `<div class="markdown-preview-box"><blockquote>Foco no código</blockquote></div>`,
+      `<div class="markdown-preview-box"><blockquote>Bora simbora</blockquote></div>`,
   },
   {
-    q: "<b>5. Listas Ordenadas:</b> são criadas usando um número, seguido de um ponto (.) e um espaço antes do texto de cada item. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie uma lista ordenada contendo exatamente os seguintes itens:<b> Primeiro</b> e <b> Segundo</b>",
-    regex: /^1\.\s+Primeiro\n2\.\s+Segundo$/,
+    q: "<b>5. Listas Ordenadas:</b> são criadas usando um número, seguido de um ponto (.) e um espaço antes do texto de cada item. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie uma lista ordenada contendo exatamente os seguintes itens:<b> O primeiro cabra</b> e<b> O segundo cabra</b>",
+    regex: /^1\.\s+O primeiro cabra\n2\.\s+O segundo cabra$/,
     render: () =>
-      `<div class="markdown-preview-box"><ol><li>Primeiro</li><li>Segundo</li></ol></div>`,
+      `<div class="markdown-preview-box"><ol><li>O primeiro cabra</li><li>O segundo cabra</li></ol></div>`,
   },
   {
-    q: "<b>6. Listas Não Ordenadas:</b> são criadas usando um traço (-) seguido de um espaço antes do texto. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie um item de lista não ordenada com o texto:<b> Maçã</b>",
-    regex: /^-\s+Maçã$/i,
+    q: "<b>6. Listas Não Ordenadas:</b> são criadas usando um traço (-) seguido de um espaço antes do texto. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie um item de lista não ordenada com o texto:<b> Caju</b>",
+    regex: /^-\s+Caju$/i,
     render: () =>
-      `<div class="markdown-preview-box"><ul><li>Maçã</li></ul></div>`,
+      `<div class="markdown-preview-box"><ul><li>Caju</li></ul></div>`,
   },
   {
     q: "<b>7. Código:</b> são criados envolvendo pequenos trechos de texto com uma crase (<code>`</code>) no início e outra no final. Esse recurso é usado para destacar comandos, nomes de arquivos, variáveis e pequenos trechos de código.<br><br>Desafio: Escreva a palavra:<b> script</b> formatada como código em linha.",
@@ -48,8 +48,8 @@ const lessons = [
     render: () => `<div class="markdown-preview-box"><hr></div>`,
   },
   {
-    q: "<b>9. Links:</b> são criados usando a estrutura [Texto](URL), em que o texto entre colchetes é o que será exibido e a URL entre parênteses é o endereço para onde o link irá apontar.<br><br>Desafio: Crie um link com o texto:<b> Zezin</b> apontando para a URL:<b> https://dalatidev.vercel.app</b>",
-    regex: /^\[Zezin\]\(https:\/\/dalatidev\.vercel\.app\)$/i,
+    q: "<b>9. Links:</b> são criados usando a estrutura [Texto](URL), em que o texto entre colchetes é o que será exibido e a URL entre parênteses é o endereço para onde o link irá apontar.<br><br>Desafio: Crie um link com o texto:<b> Comida</b> apontando para a URL:<b> https://cuscuz.com.br</b>",
+    regex: /^\[Comida\]\(https:\/\/cuscuz\.com\.br\)$/i,
     render: () =>
       `<div class="markdown-preview-box"><a href="https://dalatidev.vercel.app" target="_blank" style="color:var(--primary)">Zezin</a></div>`,
   },
@@ -288,26 +288,26 @@ userInput.addEventListener("input", () => {
 });
 
 userInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      // Se o usuário pressionar Shift + Enter, permite quebrar a linha normalmente
-      if (e.shiftKey) {
-        return; 
-      }
-      
-      // Pega o que está escrito até agora
-      const val = userInput.value;
-      
-      // Se o usuário estiver no meio de uma lista (começando com '-' ou '1.', '2.', etc.)
-      // o Enter apenas quebra a linha no celular para ele digitar o próximo item
-      if (val.startsWith('-') || /^\d+\./.test(val)) {
-        return; 
-      }
-  
-      // Se não for uma lista e for apenas uma linha normal, envia os dados
-      e.preventDefault();
-      if (!btnSend.disabled) submitData();
+  if (e.key === "Enter") {
+    // Se o usuário pressionar Shift + Enter, permite quebrar a linha normalmente
+    if (e.shiftKey) {
+      return;
     }
-  });
+
+    // Pega o que está escrito até agora
+    const val = userInput.value;
+
+    // Se o usuário estiver no meio de uma lista (começando com '-' ou '1.', '2.', etc.)
+    // o Enter apenas quebra a linha no celular para ele digitar o próximo item
+    if (val.startsWith("-") || /^\d+\./.test(val)) {
+      return;
+    }
+
+    // Se não for uma lista e for apenas uma linha normal, envia os dados
+    e.preventDefault();
+    if (!btnSend.disabled) submitData();
+  }
+});
 
 btnSend.onclick = () => {
   submitData();
