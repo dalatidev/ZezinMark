@@ -5,7 +5,7 @@ const lessons = [
         render: (txt) => `<div class="markdown-preview-box"><h1>${txt.replace(/^#\s+/, '')}</h1></div>`
     },
     {
-        q: "<b>2. Negrito (Bold):</b> Envolva o texto com dois asteriscos '**' ou dois sublinhados '__'. Escreva a palavra 'Forte' in negrito.",
+        q: "<b>2. Negrito (Bold):</b> Envolva o texto com dois asteriscos '**' ou dois sublinhados '__'. Escreva a palavra 'Forte' em negrito.",
         regex: /^(\*\*|__)Forte\1$/,
         render: () => `<div class="markdown-preview-box"><strong>Forte</strong></div>`
     },
@@ -56,11 +56,13 @@ const examQuestions = [
     { q: "<b>Prova Q2:</b> Demonstre como aplicar Negrito e Itálico simultaneamente na palavra 'Markdown' usando três asteriscos.", regex: /^\*\*\*Markdown\*\*\*$/ }
 ];
 
+// Gerenciador de Estados
 let state = {
     userName: localStorage.getItem('md_name') || '',
     index: parseInt(localStorage.getItem('md_index')) || 0,
     currentStep: 'naming', 
-    examScore: 0
+    examIndex: 0,
+    examAnswers: [] // Armazena as respostas de forma livre para correção tardia
 };
 
 const chatArea = document.getElementById('chat-area');
@@ -69,11 +71,12 @@ const feedbackStatus = document.getElementById('feedback-status');
 const feedbackText = document.getElementById('feedback-text');
 const btnSend = document.getElementById('btn-send');
 const navControls = document.getElementById('nav-controls');
+const btnBack = document.getElementById('btn-back');
+const btnSkip = document.getElementById('btn-skip');
 const statusLabel = document.getElementById('lesson-status');
 
 window.onload = () => {
     applyTheme(localStorage.getItem('md_theme') || 'light');
-    // BLINDAGEM DE STRING: Garante que nomes nulos ou vazios forcem a identificação
     if (!state.userName || state.userName.trim() === "" || state.userName === "null") {
         state.currentStep = 'naming';
         askName();
@@ -84,7 +87,6 @@ window.onload = () => {
 };
 
 function scrollToBottom() {
-    // Ajustado tempo para garantir renderização fluida em viewports mobile
     setTimeout(() => {
         chatArea.scrollTop = chatArea.scrollHeight;
     }, 80);
@@ -170,18 +172,22 @@ function loadLesson() {
         startExam();
         return;
     }
+
+    // Configuração dos botões na fase de lição
+    btnSkip.style.display = 'inline-flex';
+    btnBack.style.display = state.index > 0 ? 'inline-flex' : 'none';
+
     statusLabel.textContent = `Lição ${state.index + 1} de ${lessons.length}`;
     addMsg("bot", lessons[state.index].q);
     localStorage.setItem('md_index', state.index);
 }
 
-// Monitoramento reativo
+// --- VALIDAÇÃO REATIVA EM TEMPO REAL ---
 userInput.addEventListener('input', () => {
     const val = userInput.value;
     userInput.style.height = 'auto';
     userInput.style.height = userInput.scrollHeight + 'px';
 
-    // FIX MOBILE: Ativa o botão enviar dinamicamente para cliques por touch na identificação
     if (state.currentStep === 'naming') {
         if (val.trim().length >= 2) {
             setFeedback("correct", "Nome válido! Toque para enviar.", false);
@@ -196,7 +202,18 @@ userInput.addEventListener('input', () => {
         return;
     }
 
-    const current = state.currentStep === 'exam' ? examQuestions[state.examScore] : lessons[state.index];
+    // AJUSTE CRÍTICO DA PROVA: Validação cega sem revelar se está correto ou não
+    if (state.currentStep === 'exam') {
+        if (val.trim().length > 0) {
+            setFeedback("info", "Resposta registrada. Toque para enviar.", false);
+        } else {
+            setFeedback("info", "Aguardando resposta...", true);
+        }
+        return;
+    }
+
+    // Validação em tempo real padrão das lições
+    const current = lessons[state.index];
     if (current && current.regex.test(val)) {
         setFeedback("correct", "Sintaxe correta detectada! Pronto para enviar.", false);
     } else {
@@ -230,15 +247,15 @@ function submitData() {
     addMsg("user", val);
     
     if (state.currentStep === 'exam') {
-        state.examScore++;
-        if (state.examScore >= examQuestions.length) {
+        // Salva a resposta dada no índice correspondente
+        state.examAnswers[state.examIndex] = val;
+        state.examIndex++;
+        
+        if (state.examIndex >= examQuestions.length) {
             showFinalResult();
         } else {
-            addMsg("bot", "Análise computada! Próxima questão da avaliação.");
-            setTimeout(() => {
-                addMsg("bot", examQuestions[state.examScore].q);
-                resetValidationState();
-            }, 600);
+            addMsg("bot", "Análise salva de forma segura! Próxima questão.");
+            setTimeout(loadExamQuestion, 600);
         }
     } else {
         const renderHtml = lessons[state.index].render(val);
@@ -251,25 +268,65 @@ function submitData() {
     userInput.style.height = 'auto';
 }
 
+// --- SISTEMA DE PROVA ATUALIZADO ---
 function startExam() {
     state.currentStep = 'exam';
-    state.examScore = 0;
+    state.examIndex = 0;
+    state.examAnswers = [];
     statusLabel.textContent = "Avaliação Final";
-    addMsg("bot", "🎯 <b>Chegamos à Prova Final!</b> Agora vamos consolidar seu conhecimento sem as caixas de visualização prévia. Boa sorte!");
-    setTimeout(() => {
-        addMsg("bot", examQuestions[0].q);
-        resetValidationState();
-    }, 800);
+    addMsg("bot", "🎯 <b>Chegamos à Prova Final!</b> Agora vamos avaliar seu conhecimento de forma autônoma. O resultado detalhado será computado e exibido apenas no encerramento. Boa sorte!");
+    setTimeout(loadExamQuestion, 1000);
+}
+
+function loadExamQuestion() {
+    userInput.value = '';
+    
+    // Se o usuário tiver voltado, recupera o que ele tinha digitado anteriormente
+    if (state.examAnswers[state.examIndex] !== undefined) {
+        userInput.value = state.examAnswers[state.examIndex];
+    }
+    userInput.style.height = 'auto';
+    resetValidationState();
+
+    // BLOQUEIO TOTAL DE PULAR / GERENCIAMENTO DO VOLTAR
+    btnSkip.style.display = 'none'; 
+    btnBack.style.display = state.examIndex > 0 ? 'inline-flex' : 'none';
+    navControls.style.display = 'flex';
+
+    statusLabel.textContent = `Prova Q${state.examIndex + 1} de ${examQuestions.length}`;
+    addMsg("bot", examQuestions[state.examIndex].q);
+    
+    // Dispara o evento para validar o estado do botão caso contenha texto recuperado
+    userInput.dispatchEvent(new Event('input'));
 }
 
 function showFinalResult() {
     state.currentStep = 'complete';
     navControls.style.display = 'none';
     statusLabel.textContent = "Concluído";
+    
+    // Correção e cálculo final tardio em memória
+    let finalScore = 0;
+    examQuestions.forEach((q, i) => {
+        if (q.regex.test(state.examAnswers[i] || '')) {
+            finalScore++;
+        }
+    });
+
     addMsg("bot", "🏆 <b>Exame concluído com sucesso!</b>");
-    addMsg("bot", `Você assimilou perfeitamente todos os conceitos estruturais básicos da linguagem.`);
+    addMsg("bot", `<b>Resultado da Avaliação:</b> Você obteve <b>${finalScore} de ${examQuestions.length}</b> acertos.`);
+    
+    if (finalScore === examQuestions.length) {
+        addMsg("bot", "Aproveitamento impecável! Conhecimento consolidado em 100%.");
+    } else if (finalScore > 0) {
+        addMsg("bot", "Bom rendimento! Você compreendeu a base e estrutura essencial do ecossistema.");
+    } else {
+        addMsg("bot", "Sugerimos revisar as lições interativas para fixar melhor as regras de marcação.");
+    }
+
     addMsg("bot", `Muito obrigado por treinar com o meu sistema. Este projeto foi inteiramente estruturado por <b>Dalati Lacerda Azevedo</b>.`);
     addMsg("bot", `Acompanhe outros projetos no Instagram: <a href="https://instagram.com/dalatidev" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">@dalatidev <i data-lucide="instagram" size="16"></i></a>`);
+    
     lucide.createIcons();
     resetValidationState();
 }
@@ -325,28 +382,39 @@ function applyTheme(t) {
     }
 }
 
-// Reiniciar Conversa Mantendo Usuário
+// Reiniciar Conversa
 document.getElementById('btn-reset').onclick = () => {
     if (confirm("Zezin vai reiniciar a conversa com você do início. Deseja continuar?")) {
         state.index = 0;
-        state.examScore = 0;
+        state.examIndex = 0;
+        state.examAnswers = [];
         localStorage.setItem('md_index', 0);
         chatArea.innerHTML = '';
         welcomeBack();
     }
 };
 
-// Navegação entre lições
-document.getElementById('btn-back').onclick = () => { 
-    if (state.index > 0) { 
-        state.index--; 
-        addMsg("bot", "↩️ Voltando para a lição anterior...");
-        loadLesson(); 
-    } 
+// Cliques de Navegação Inteligentes (Suportam Prova e Lições)
+btnBack.onclick = () => { 
+    if (state.currentStep === 'exam') {
+        if (state.examIndex > 0) {
+            state.examIndex--;
+            addMsg("bot", "↩️ Voltando para a questão anterior da prova...");
+            loadExamQuestion();
+        }
+    } else {
+        if (state.index > 0) { 
+            state.index--; 
+            addMsg("bot", "↩️ Voltando para a lição anterior...");
+            loadLesson(); 
+        } 
+    }
 };
 
-document.getElementById('btn-skip').onclick = () => { 
-    state.index++; 
-    addMsg("bot", "⏭️ Pulando desafio...");
-    loadLesson(); 
+btnSkip.onclick = () => { 
+    if (state.currentStep !== 'exam') {
+        state.index++; 
+        addMsg("bot", "⏭️ Pulando desafio...");
+        loadLesson(); 
+    }
 };
