@@ -1,7 +1,7 @@
 const lessons = [
   {
-    q: "<b>1. Títulos:</b> são criados usando o caractere # no início da linha. A quantidade de # define o nível do título: # é um título H1 (o maior), ## é H2, ### é H3, e assim por diante, até ###### (H6). Sempre deixe um espaço entre o último # e o texto.<br>Desafio: Crie um título principal (H1) com o texto: Olá Mundo",
-    regex: /^#\s+Ola Mundo$/i,
+    q: "<b>1. Títulos:</b> são criados usando o caractere # no início da linha. A quantidade de # define o nível do título: # é um título H1 (o maior), ## é H2, ### é H3, e assim por diante, até ###### (H6). Sempre deixe um espaço entre o último # e o texto.<br><br>Desafio: Crie um título principal (H1) com o texto:<b> Olá Mundo</b>",
+    regex: /^#\s+Olá Mundo$/i,
     render: (txt) =>
       `<div class="markdown-preview-box"><h1>${txt.replace(
         /^#\s+/,
@@ -9,24 +9,24 @@ const lessons = [
       )}</h1></div>`,
   },
   {
-    q: "<b>2. Negrito (Bold):</b> Envolva o texto com dois asteriscos '**' ou dois sublinhados '__'. Escreva a palavra 'Forte' em negrito.",
+    q: "<b>2. Negrito:</b> são criados envolvendo o texto com dois asteriscos (**) ou dois sublinhados (__). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Forte</b> em negrito utilizando uma das duas formas disponíveis.",
     regex: /^(\*\*|__)Forte\1$/,
     render: () =>
       `<div class="markdown-preview-box"><strong>Forte</strong></div>`,
   },
   {
-    q: "<b>3. Itálico (Italic):</b> Envolva o texto usando apenas um '*' ou '_'. Deixe a palavra 'Lindo' em itálico.",
+    q: "<b>3. Itálico:</b> são criados envolvendo o texto com um asterisco (*) ou um sublinhado (_). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Lindo</b> em itálico utilizando uma das duas formas disponíveis.",
     regex: /^(\*|_)Lindo\1$/,
     render: () => `<div class="markdown-preview-box"><em>Lindo</em></div>`,
   },
   {
-    q: "<b>4. Citações (Blockquote):</b> Use o caractere '>' seguido de um espaço antes de uma frase. Crie uma citação com o texto 'Foco no código'.",
+    q: "<b>4. Citações:</b> são criadas usando o caractere maior que (>) no início da linha, seguido de um espaço antes do texto. Esse recurso é usado para destacar frases, trechos ou citações.<br><br>Desafio: Crie uma citação com o texto:<b> Foco no código</b>",
     regex: /^>\s+Foco no código$/i,
     render: () =>
       `<div class="markdown-preview-box"><blockquote>Foco no código</blockquote></div>`,
   },
   {
-    q: "<b>5. Listas Ordenadas:</b> Use números seguidos de ponto e espaço. Escreva uma lista contendo exatamente duas linhas estruturadas:<br>1. Primeiro<br>2. Segundo",
+    q: "<b>5. Listas Ordenadas:</b> são criadas usando um número, seguido de um ponto (.) e um espaço antes do texto de cada item. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie uma lista ordenada contendo exatamente os seguintes itens:<b> Primeiro</b> e<b> Segundo</b>",
     regex: /^1\.\s+Primeiro\n2\.\s+Segundo$/,
     render: () =>
       `<div class="markdown-preview-box"><ol><li>Primeiro</li><li>Segundo</li></ol></div>`,
@@ -169,13 +169,13 @@ function introZezin() {
   const row = document.createElement("div");
   row.className = "message-row";
   row.innerHTML = `
-        <div class="message-bubble bot-style">
-            Tudo pronto para dominarmos a sintaxe básica completa do Markdown?
-            <div class="action-button-container">
-                <button class="prime-btn" id="start-journey-btn">Iniciar Jornada <i data-lucide="play" size="16"></i></button>
-            </div>
-        </div>
-    `;
+          <div class="message-bubble bot-style">
+              Tudo pronto para dominarmos a sintaxe básica completa do Markdown?
+              <div class="action-button-container">
+                  <button class="prime-btn" id="start-journey-btn">Iniciar Jornada <i data-lucide="play" size="16"></i></button>
+              </div>
+          </div>
+      `;
   chatArea.appendChild(row);
   scrollToBottom();
   lucide.createIcons();
@@ -199,12 +199,12 @@ function welcomeBack() {
   const row = document.createElement("div");
   row.className = "message-row";
   row.innerHTML = `
-        <div class="message-bubble bot-style">
-            <div class="action-button-container">
-                <button class="prime-btn" id="resume-journey-btn">Continuar Aprendizado <i data-lucide="play" size="16"></i></button>
-            </div>
-        </div>
-    `;
+          <div class="message-bubble bot-style">
+              <div class="action-button-container">
+                  <button class="prime-btn" id="resume-journey-btn">Continuar Aprendizado <i data-lucide="play" size="16"></i></button>
+              </div>
+          </div>
+      `;
   chatArea.appendChild(row);
   scrollToBottom();
   lucide.createIcons();
