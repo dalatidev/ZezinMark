@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprenda Markdown com o Zezin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="app-layout">
+      <nav class="navbar">
+        <div class="nav-brand">
+          <i data-lucide="terminal" class="brand-icon"></i>
+          <div class="brand-text">
+            <h1>Zezin</h1>
+            <span id="lesson-status">Carregando...</span>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="nav-btn" title="Alternar tema">
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+          <button id="btn-reset" class="nav-btn" title="Reiniciar conversa">
+            <i data-lucide="rotate-ccw"></i>
+          </button>
+        </div>
+      </nav>
+
+      <main class="chat-area" id="chat-area"></main>
+
+      <footer class="input-footer" id="input-footer">
+        <div class="container-inner">
+          <div class="feedback-status" id="feedback-status">
+            <i data-lucide="info" size="14"></i>
+            <span id="feedback-text">Aguardando entrada...</span>
+          </div>
+          <div class="input-field-group">
+            <textarea
+              id="user-input"
+              placeholder="Digite aqui..."
+              rows="1"
+              autocomplete="off"
+            ></textarea>
+            <button id="btn-send" disabled title="Enviar">
+              <i data-lucide="send-horizontal"></i>
+            </button>
+          </div>
+          <div
+            class="navigation-controls"
+            id="nav-controls"
+            style="display: none"
+          >
+            <button id="btn-back" class="control-link">
+              <i data-lucide="chevron-left"></i> Voltar
+            </button>
+            <button id="btn-skip" class="control-link">
+              Pular <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
