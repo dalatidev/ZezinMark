@@ -54,10 +54,10 @@ const lessons = [
       `<div class="markdown-preview-box"><a href="https://www.tudogostoso.com.br/receita/9547-arroz-de-cuxa-maranhense.html" target="_blank" style="color:var(--primary)">Comida</a></div>`,
   },
   {
-    q: "<b>10. Imagens:</b> são inseridas usando a estrutura ![Texto alternativo](URL). O texto alternativo descreve a imagem e a URL indica o caminho ou endereço do arquivo da imagem.<br><br>Desafio: Insira uma imagem com o texto alternativo:<b> Imagem</b> utilizando a URL:<b> zezin.png</b> não esqueça o ponto de exclamação!",
+    q: "<b>10. Imagens:</b> são inseridas usando uma estrutura parecida com a de um link, mas com um ponto de exclamação adicionado no início: ![Texto alternativo](URL). O texto alternativo descreve a imagem, e a URL indica o caminho ou endereço do arquivo da imagem.<br><br>Desafio: Insira uma imagem com o texto alternativo: <b>Imagem</b>, utilizando a URL: <b>zezin.png</b>",
     regex: /^!\[Imagem\]\(zezin\.png\)$/i,
     render: () =>
-      `<div class="markdown-preview-box"><img src="Zezin_Cuscuz.png" alt="Logo"></div>`,
+      `<div class="markdown-preview-box"><img src="Zezin_Cuscuz.png" alt="Robo comendo cuscuz com café"></div>`,
   },
 ];
 
