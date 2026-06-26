@@ -32,32 +32,32 @@ const lessons = [
       `<div class="markdown-preview-box"><ol><li>Primeiro</li><li>Segundo</li></ol></div>`,
   },
   {
-    q: "<b>6. Listas Não Ordenadas:</b> Use um traço '-' seguido de espaço. Crie um item de lista escrito 'Maçã'.",
+    q: "<b>6. Listas Não Ordenadas:</b> são criadas usando um traço (-) seguido de um espaço antes do texto. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie um item de lista não ordenada com o texto:<b> Maçã</b>",
     regex: /^-\s+Maçã$/i,
     render: () =>
       `<div class="markdown-preview-box"><ul><li>Maçã</li></ul></div>`,
   },
   {
-    q: "<b>7. Código (Code):</b> Envolva pequenos trechos com uma crase (`) de cada lado. Coloque a palavra 'script' formatada como código.",
+    q: "<b>7. Código:</b> são criados envolvendo pequenos trechos de texto com uma crase (<code>`</code>) no início e outra no final. Esse recurso é usado para destacar comandos, nomes de arquivos, variáveis e pequenos trechos de código.<br><br>Desafio: Escreva a palavra:<b> script</b> formatada como código em linha.",
     regex: /^`script`$/i,
     render: () => `<div class="markdown-preview-box"><code>script</code></div>`,
   },
   {
-    q: "<b>8. Linha Horizontal (Horizontal Rule):</b> Digite três traços sequenciais '---' sozinhos na linha para criar uma divisória.",
+    q: "<b>8. Linha Horizontal:</b> são criadas escrevendo três traços (---) sozinhos em uma linha. Esse recurso é usado para criar uma divisória visual entre seções do texto.<br><br>Desafio: Crie uma <b> linha horizontal</b> utilizando três traços sequenciais.",
     regex: /^---$/,
     render: () => `<div class="markdown-preview-box"><hr></div>`,
   },
   {
-    q: "<b>9. Links:</b> Use a estrutura [Texto](URL). Crie um link chamado 'Dalati' que aponte para 'https://instagram.com/dalatidev'.",
-    regex: /^\[Dalati\]\(https:\/\/instagram\.com\/dalatidev\)$/i,
+    q: "<b>9. Links:</b> são criados usando a estrutura [Texto](URL), em que o texto entre colchetes é o que será exibido e a URL entre parênteses é o endereço para onde o link irá apontar.<br><br>Desafio: Crie um link com o texto:<b> Zezin</b> apontando para a URL:<b> https://dalatidev.vercel.app</b>",
+    regex: /^\[Zezin\]\(https:\/\/dalatidev\.vercel\.app\)$/i,
     render: () =>
-      `<div class="markdown-preview-box"><a href="https://instagram.com/dalatidev" target="_blank" style="color:var(--primary)">Dalati</a></div>`,
+      `<div class="markdown-preview-box"><a href="https://dalatidev.vercel.app" target="_blank" style="color:var(--primary)">Zezin</a></div>`,
   },
   {
-    q: "<b>10. Imagens:</b> Começa com uma exclamação: ![Alt Text](URL). Insira uma imagem com o texto alternativo 'Logo' e a URL 'logo.jpg'.",
-    regex: /^!\[Logo\]\(logo\.jpg\)$/i,
+    q: "<b>10. Imagens:</b> são inseridas usando a estrutura ![Texto alternativo](URL). O texto alternativo descreve a imagem e a URL indica o caminho ou endereço do arquivo da imagem.<br><br>Desafio: Insira uma imagem com o texto alternativo:<b> Imagem</b> utilizando a URL:<b> zezin.png</b>",
+    regex: /^!\[Imagem\]\(zezin\.png\)$/i,
     render: () =>
-      `<div class="markdown-preview-box"><img src="https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=150" alt="Logo"></div>`,
+      `<div class="markdown-preview-box"><img src="Zezin_Cuscuz.png" alt="Logo"></div>`,
   },
 ];
 
