@@ -1,6 +1,6 @@
 const lessons = [
   {
-    q: "<b>1. Títulos (Headings):</b> Use de 1 a 6 caracteres '#' seguidos de um espaço antes do seu texto. Crie um título principal H1 escrito 'Ola Mundo'.",
+    q: "<b>1. Títulos:</b> são criados usando o caractere # no início da linha. A quantidade de # define o nível do título: # é um título H1 (o maior), ## é H2, ### é H3, e assim por diante, até ###### (H6). Sempre deixe um espaço entre o último # e o texto.<br>Desafio: Crie um título principal (H1) com o texto: Olá Mundo",
     regex: /^#\s+Ola Mundo$/i,
     render: (txt) =>
       `<div class="markdown-preview-box"><h1>${txt.replace(
