@@ -1,6 +1,7 @@
 const lessons = [
   {
-    q: "<b>1. Títulos:</b> são criados usando o caractere # no início da linha. A quantidade de # define o nível do título: # é um título H1 (o maior), ## é H2, ### é H3, e assim por diante, até ###### (H6). Sempre deixe um espaço entre o último # e o texto.<br><br>Desafio: Crie um título principal (H1) com o texto:<b> Oba minha gente</b>",
+    q: "<b>1. Títulos:</b> No Markdown, criamos títulos usando o símbolo <code>#</code> no início da linha. Quanto mais <code>#</code> você colocar, menor fica o título: <code>#</code> = título grande (H1), <code>##</code> = médio (H2), até <code>######</code> (H6). Sempre coloque um espaço entre o <code>#</code> e o texto.<br><br><b>Exemplo:</b> <code># Meu Título</code><br><br><b>Desafio:</b> Crie um título grande (H1) com o texto <b>Oba minha gente</b>",
+    hint: "# Oba minha gente",
     regex: /^#\s+Oba minha gente$/i,
     render: (txt) =>
       `<div class="markdown-preview-box"><h1>${txt.replace(
@@ -9,99 +10,128 @@ const lessons = [
       )}</h1></div>`,
   },
   {
-    q: "<b>2. Negrito:</b> são criados envolvendo o texto com dois asteriscos (**) ou dois sublinhados (__). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Oxente</b> em negrito utilizando uma das duas formas disponíveis.",
+    q: "<b>2. Negrito:</b> Para deixar um texto em <b>negrito</b>, coloque dois asteriscos (<code>**</code>) ou dois sublinhados (<code>__</code>) antes e depois da palavra. Não deixe espaço entre os marcadores e o texto.<br><br><b>Exemplo:</b> <code>**texto forte**</code> ou <code>__texto forte__</code><br><br><b>Desafio:</b> Escreva a palavra <b>Oxente</b> em negrito.",
+    hint: "**Oxente**",
     regex: /^(\*\*|__)Oxente\1$/,
     render: () =>
       `<div class="markdown-preview-box"><strong>Oxente</strong></div>`,
   },
   {
-    q: "<b>3. Itálico:</b> são criados envolvendo o texto com um asterisco (*) ou um sublinhado (_). Os marcadores devem ser colocados no início e no final do texto, sem espaços entre eles e a palavra.<br><br>Desafio: Escreva a palavra:<b> Arretado</b> em itálico utilizando uma das duas formas disponíveis.",
+    q: "<b>3. Itálico:</b> Para deixar um texto em <em>itálico</em>, coloque um asterisco (<code>*</code>) ou um sublinhado (<code>_</code>) antes e depois da palavra.<br><br><b>Exemplo:</b> <code>*texto inclinado*</code> ou <code>_texto inclinado_</code><br><br><b>Desafio:</b> Escreva a palavra <b>Arretado</b> em itálico.",
+    hint: "*Arretado*",
     regex: /^(\*|_)Arretado\1$/,
     render: () => `<div class="markdown-preview-box"><em>Arretado</em></div>`,
   },
   {
-    q: "<b>4. Citações:</b> são criadas usando o caractere maior que (>) no início da linha, seguido de um espaço antes do texto. Esse recurso é usado para destacar frases, trechos ou citações.<br><br>Desafio: Crie uma citação com o texto:<b> Bora simbora</b>",
+    q: "<b>4. Citação:</b> Para criar uma citação (blockquote), coloque o símbolo <code>></code> no início da linha, seguido de um espaço.<br><br><b>Exemplo:</b> <code>> Frase importante</code><br><br><b>Desafio:</b> Crie uma citação com o texto <b>Bora simbora</b>",
+    hint: "> Bora simbora",
     regex: /^>\s+Bora simbora$/i,
     render: () =>
       `<div class="markdown-preview-box"><blockquote>Bora simbora</blockquote></div>`,
   },
   {
-    q: "<b>5. Listas Ordenadas:</b> são criadas usando um número, seguido de um ponto (.) e um espaço antes do texto de cada item. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie uma lista ordenada contendo exatamente os seguintes itens:<b> O primeiro cabra</b> e<b> O segundo cabra</b>",
+    q: "<b>5. Lista Ordenada:</b> Para criar uma lista numerada, escreva o número, um ponto e um espaço antes de cada item. Cada item fica em uma linha diferente.<br><br><b>Exemplo:</b><br><code>1. Primeiro item</code><br><code>2. Segundo item</code><br><br><b>Desafio:</b> Crie uma lista ordenada com dois itens: <b>O primeiro cabra</b> e <b>O segundo cabra</b><br><br><em>Dica: use Shift+Enter ou o botão de enviar para quebrar a linha.</em>",
+    hint: "1. O primeiro cabra\n2. O segundo cabra",
     regex: /^1\.\s+O primeiro cabra\n2\.\s+O segundo cabra$/,
     render: () =>
       `<div class="markdown-preview-box"><ol><li>O primeiro cabra</li><li>O segundo cabra</li></ol></div>`,
   },
   {
-    q: "<b>6. Listas Não Ordenadas:</b> são criadas usando um traço (-) seguido de um espaço antes do texto. Cada item da lista deve ser escrito em uma nova linha.<br><br>Desafio: Crie um item de lista não ordenada com o texto:<b> Caju</b>",
+    q: "<b>6. Lista Não Ordenada:</b> Para criar um item de lista com marcador, coloque um traço (<code>-</code>) seguido de um espaço antes do texto.<br><br><b>Exemplo:</b> <code>- Meu item</code><br><br><b>Desafio:</b> Crie um item de lista não ordenada com o texto <b>Caju</b>",
+    hint: "- Caju",
     regex: /^-\s+Caju$/i,
     render: () =>
       `<div class="markdown-preview-box"><ul><li>Caju</li></ul></div>`,
   },
   {
-    q: "<b>7. Código:</b> são criados envolvendo pequenos trechos de texto com uma crase (<code>`</code>) no início e outra no final. Esse recurso é usado para destacar comandos, nomes de arquivos, variáveis e pequenos trechos de código.<br><br>Desafio: Escreva a palavra:<b> script</b> formatada como código em linha.",
+    q: "<b>7. Código em linha:</b> Para destacar uma palavra como código, coloque uma crase (<code>`</code>) antes e depois do texto. Isso é útil para mostrar comandos, nomes de variáveis ou trechos de código.<br><br><b>Exemplo:</b> <code>`meuComando`</code><br><br><b>Desafio:</b> Escreva a palavra <b>script</b> formatada como código.",
+    hint: "`script`",
     regex: /^`script`$/i,
     render: () => `<div class="markdown-preview-box"><code>script</code></div>`,
   },
   {
-    q: "<b>8. Linha Horizontal:</b> são criadas escrevendo três traços (---) sozinhos em uma linha. Esse recurso é usado para criar uma divisória visual entre seções do texto.<br><br>Desafio: Crie uma <b> linha horizontal</b> utilizando três traços sequenciais.",
+    q: "<b>8. Linha Horizontal:</b> Para criar uma linha divisória entre seções, escreva três traços (<code>---</code>) sozinhos em uma linha.<br><br><b>Exemplo:</b> <code>---</code><br><br><b>Desafio:</b> Crie uma linha horizontal.",
+    hint: "---",
     regex: /^---$/,
     render: () => `<div class="markdown-preview-box"><hr></div>`,
   },
   {
-    q: "<b>9. Links:</b> são criados usando a estrutura [Texto](URL), em que o texto entre colchetes é o que será exibido e a URL entre parênteses é o endereço para onde o link irá apontar.<br><br>Desafio: Crie um link com o texto:<b> Comida</b> apontando para a URL:<b> arrozdecuxa.com</b>",
+    q: "<b>9. Link:</b> Para criar um link, use a estrutura <code>[texto](endereço)</code>. O texto entre colchetes é o que aparece na tela, e o endereço entre parênteses é para onde o link leva.<br><br><b>Exemplo:</b> <code>[Clique aqui](site.com)</code><br><br><b>Desafio:</b> Crie um link com o texto <b>Comida</b> apontando para <b>arrozdecuxa.com</b>",
+    hint: "[Comida](arrozdecuxa.com)",
     regex: /^\[Comida\]\(arrozdecuxa\.com\)$/i,
     render: () =>
       `<div class="markdown-preview-box"><a href="https://www.tudogostoso.com.br/receita/9547-arroz-de-cuxa-maranhense.html" target="_blank" style="color:var(--primary)">Comida</a></div>`,
   },
   {
-    q: "<b>10. Imagens:</b> são inseridas usando uma estrutura parecida com a de um link, mas com um ponto de exclamação adicionado no início: ![Texto alternativo](URL). O texto alternativo descreve a imagem, e a URL indica o caminho ou endereço do arquivo da imagem.<br><br>Desafio: Insira uma imagem com o texto alternativo: <b>Imagem</b>, utilizando a URL: <b>zezin.png</b>",
+    q: "<b>10. Imagem:</b> Para inserir uma imagem, é parecido com um link, mas com uma exclamação (<code>!</code>) antes: <code>![descrição](endereço)</code>. A descrição aparece quando a imagem não carrega.<br><br><b>Exemplo:</b> <code>![Logo](logo.png)</code><br><br><b>Desafio:</b> Insira uma imagem com a descrição <b>Imagem</b> e o endereço <b>zezin.png</b>",
+    hint: "![Imagem](zezin.png)",
     regex: /^!\[Imagem\]\(zezin\.png\)$/i,
     render: () =>
       `<div class="markdown-preview-box"><img src="Zezin_Cuscuz.png" alt="Robo comendo cuscuz com café"></div>`,
   },
 ];
 
-// BANCO DE QUESTÕES DA AVALIAÇÃO - 10 DESAFIOS COMPLETOS E REFORMULADOS
+// BANCO DE QUESTÕES DA AVALIAÇÃO
 const examQuestions = [
   {
-    q: "<b>Prova Q1 (Títulos):</b> Como estruturamos um título secundário (H2) contendo apenas a palavra 'Estudos'?",
+    q: "<b>Questão 1 — Títulos:</b> Crie um título de nível 2 (H2) com a palavra <b>Estudos</b>.",
     regex: /^##\s+Estudos$/i,
+    expected: "## Estudos",
+    topic: "Títulos",
   },
   {
-    q: "<b>Prova Q2 (Negrito):</b> Demonstre como aplicar o Negrito clássico na palavra 'Aprovado' usando dois asteriscos.",
+    q: "<b>Questão 2 — Negrito:</b> Escreva a palavra <b>Aprovado</b> em negrito usando asteriscos (<code>**</code>).",
     regex: /^\*\*Aprovado\*\*$/,
+    expected: "**Aprovado**",
+    topic: "Negrito",
   },
   {
-    q: "<b>Prova Q3 (Itálico):</b> Como deixamos a palavra 'Sucesso' formatada em itálico usando apenas o caractere sublinhado (_)?",
+    q: "<b>Questão 3 — Itálico:</b> Escreva a palavra <b>Sucesso</b> em itálico usando sublinhado (<code>_</code>).",
     regex: /^_Sucesso_$/,
+    expected: "_Sucesso_",
+    topic: "Itálico",
   },
   {
-    q: "<b>Prova Q4 (Citações):</b> Crie uma citação destacada (Blockquote) configurando a frase 'Aprender transforma'.",
+    q: "<b>Questão 4 — Citação:</b> Crie uma citação com a frase <b>Aprender transforma</b>.",
     regex: /^>\s+Aprender transforma$/i,
+    expected: "> Aprender transforma",
+    topic: "Citação",
   },
   {
-    q: "<b>Prova Q5 (Listas Ordenadas):</b> Escreva uma lista numérica sequencial contendo exatamente duas linhas:<br>1. Item A<br>2. Item B",
+    q: "<b>Questão 5 — Lista Ordenada:</b> Crie uma lista numerada com dois itens: <b>Item A</b> e <b>Item B</b>.<br><br><em>Dica: use Shift+Enter para quebrar a linha.</em>",
     regex: /^1\.\s+Item A\n2\.\s+Item B$/,
+    expected: "1. Item A\n2. Item B",
+    topic: "Lista Ordenada",
   },
   {
-    q: "<b>Prova Q6 (Listas Não Ordenadas):</b> Insira um item de marcador não ordenado usando o traço (-) para a palavra 'Café'.",
+    q: "<b>Questão 6 — Lista Não Ordenada:</b> Crie um item de lista com traço (<code>-</code>) para a palavra <b>Café</b>.",
     regex: /^-\s+Café$/i,
+    expected: "- Café",
+    topic: "Lista Não Ordenada",
   },
   {
-    q: "<b>Prova Q7 (Código):</b> Formate estritamente o termo técnico 'console.log' como uma expressão de código em linha.",
+    q: "<b>Questão 7 — Código:</b> Formate o texto <b>console.log</b> como código em linha usando crases.",
     regex: /^`console\.log`$/i,
+    expected: "`console.log`",
+    topic: "Código",
   },
   {
-    q: "<b>Prova Q8 (Linha Divisória):</b> Forneça a sintaxe isolada correta de 3 traços para gerar uma quebra de linha horizontal.",
+    q: "<b>Questão 8 — Linha Horizontal:</b> Crie uma linha horizontal usando três traços.",
     regex: /^---$/,
+    expected: "---",
+    topic: "Linha Horizontal",
   },
   {
-    q: "<b>Prova Q9 (Links):</b> Construa um hiperlink com o texto 'Google' apontando para o endereço 'https://google.com'.",
+    q: "<b>Questão 9 — Link:</b> Crie um link com o texto <b>Google</b> apontando para <b>https://google.com</b>.",
     regex: /^\[Google\]\(https:\/\/google\.com\)$/i,
+    expected: "[Google](https://google.com)",
+    topic: "Link",
   },
   {
-    q: "<b>Prova Q10 (Imagens):</b> Insira uma imagem que carregue o rótulo alternativo 'Foto' apontando para o arquivo 'foto.png'.",
+    q: "<b>Questão 10 — Imagem:</b> Insira uma imagem com a descrição <b>Foto</b> e o endereço <b>foto.png</b>.",
     regex: /^!\[Foto\]\(foto\.png\)$/i,
+    expected: "![Foto](foto.png)",
+    topic: "Imagem",
   },
 ];
 
@@ -113,6 +143,12 @@ let state = {
   examIndex: 0,
   examAnswers: [],
 };
+
+// Limitar o index ao máximo de lições existentes
+if (state.index > lessons.length) {
+  state.index = 0;
+  localStorage.setItem("md_index", 0);
+}
 
 const chatArea = document.getElementById("chat-area");
 const userInput = document.getElementById("user-input");
@@ -150,7 +186,7 @@ function askName() {
   statusLabel.textContent = "Identificação";
   addMsg(
     "bot",
-    "Olá! Sou o <b>Zezin</b>. Antes de partirmos para o código, como posso chamar você?"
+    "Olá! Sou o <b>Zezin</b>. Antes de começarmos, como posso te chamar?"
   );
   userInput.placeholder = "Seu nome ou apelido...";
   navControls.style.display = "none";
@@ -160,22 +196,22 @@ function askName() {
 function introZezin() {
   state.currentStep = "intro";
   statusLabel.textContent = "Apresentação";
-  addMsg("bot", `Muito prazer, ${state.userName}! Eu sou o <b>Zezin</b>.`);
+  addMsg("bot", `Prazer em te conhecer, <b>${state.userName}</b>!`);
   addMsg(
     "bot",
-    `Importante alinhar as expectativas: Eu <b>não</b> sou uma Inteligência Artificial. Sou um assistente automatizado bem direto ao ponto, programado do zero pelo desenvolvedor <b>Dalati Lacerda Azevedo</b>.`
+    `Só pra deixar claro: eu <b>não</b> sou uma Inteligência Artificial. Sou um assistente automático criado pelo desenvolvedor <b>Dalati Lacerda Azevedo</b>, programado pra te ensinar Markdown de um jeito simples.`
   );
 
   const row = document.createElement("div");
   row.className = "message-row";
   row.innerHTML = `
-          <div class="message-bubble bot-style">
-              Tudo pronto para dominarmos a sintaxe básica completa do Markdown?
-              <div class="action-button-container">
-                  <button class="prime-btn" id="start-journey-btn">Iniciar Jornada <i data-lucide="play" size="16"></i></button>
-              </div>
-          </div>
-      `;
+            <div class="message-bubble bot-style">
+                Vou te ensinar as 10 estruturas básicas do Markdown com desafios práticos. Cada lição mostra a sintaxe e como fica o resultado. No final, tem uma provinha pra testar o que você aprendeu!
+                <div class="action-button-container">
+                    <button class="prime-btn" id="start-journey-btn">Começar <i data-lucide="play" size="16"></i></button>
+                </div>
+            </div>
+        `;
   chatArea.appendChild(row);
   scrollToBottom();
   lucide.createIcons();
@@ -193,18 +229,18 @@ function welcomeBack() {
   statusLabel.textContent = "Retorno";
   addMsg(
     "bot",
-    `Seja bem-vindo de volta, ${state.userName}! Pronto para continuar de onde parou?`
+    `Bem-vindo de volta, <b>${state.userName}</b>! Quer continuar de onde parou?`
   );
 
   const row = document.createElement("div");
   row.className = "message-row";
   row.innerHTML = `
-          <div class="message-bubble bot-style">
-              <div class="action-button-container">
-                  <button class="prime-btn" id="resume-journey-btn">Continuar Aprendizado <i data-lucide="play" size="16"></i></button>
-              </div>
-          </div>
-      `;
+            <div class="message-bubble bot-style">
+                <div class="action-button-container">
+                    <button class="prime-btn" id="resume-journey-btn">Continuar <i data-lucide="play" size="16"></i></button>
+                </div>
+            </div>
+        `;
   chatArea.appendChild(row);
   scrollToBottom();
   lucide.createIcons();
@@ -231,7 +267,8 @@ function loadLesson() {
   resetValidationState();
 
   if (state.index >= lessons.length) {
-    startExam();
+    localStorage.setItem("md_index", lessons.length);
+    offerExam();
     return;
   }
 
@@ -241,6 +278,68 @@ function loadLesson() {
   statusLabel.textContent = `Lição ${state.index + 1} de ${lessons.length}`;
   addMsg("bot", lessons[state.index].q);
   localStorage.setItem("md_index", state.index);
+}
+
+// Transição entre lições e prova
+function offerExam() {
+  state.currentStep = "pre-exam";
+  navControls.style.display = "none";
+  statusLabel.textContent = "Lições concluídas!";
+  userInput.disabled = true;
+  btnSend.disabled = true;
+
+  addMsg(
+    "bot",
+    `Parabéns, <b>${state.userName}</b>! Você completou todas as 10 lições!`
+  );
+
+  const row = document.createElement("div");
+  row.className = "message-row";
+  row.innerHTML = `
+      <div class="message-bubble bot-style">
+        Agora vem a <b>Prova Final</b>: são 10 questões sobre tudo que você aprendeu. Diferente das lições, aqui eu <b>não</b> vou dizer se acertou ou errou na hora. O resultado completo aparece só no final. Preparado?
+        <div class="action-button-container">
+          <button class="prime-btn" id="start-exam-btn">Fazer a Prova <i data-lucide="file-check" size="16"></i></button>
+        </div>
+      </div>
+    `;
+  chatArea.appendChild(row);
+  scrollToBottom();
+  lucide.createIcons();
+
+  document.getElementById("start-exam-btn").onclick = () => {
+    userInput.disabled = false;
+    startExam();
+  };
+}
+
+function startExam() {
+  state.currentStep = "exam";
+  state.examIndex = 0;
+  state.examAnswers = [];
+  statusLabel.textContent = "Prova Final";
+  setTimeout(loadExamQuestion, 400);
+}
+
+function loadExamQuestion() {
+  userInput.value = "";
+
+  if (state.examAnswers[state.examIndex] !== undefined) {
+    userInput.value = state.examAnswers[state.examIndex];
+  }
+  userInput.style.height = "auto";
+  resetValidationState();
+
+  btnSkip.style.display = "none";
+  btnBack.style.display = state.examIndex > 0 ? "inline-flex" : "none";
+  navControls.style.display = "flex";
+
+  statusLabel.textContent = `Questão ${state.examIndex + 1} de ${
+    examQuestions.length
+  }`;
+  addMsg("bot", examQuestions[state.examIndex].q);
+
+  userInput.dispatchEvent(new Event("input"));
 }
 
 userInput.addEventListener("input", () => {
@@ -273,15 +372,11 @@ userInput.addEventListener("input", () => {
 
   const current = lessons[state.index];
   if (current && current.regex.test(val)) {
-    setFeedback(
-      "correct",
-      "Sintaxe correta detectada! Pronto para enviar.",
-      false
-    );
+    setFeedback("correct", "Sintaxe correta! Pode enviar.", false);
   } else {
     setFeedback(
       "incorrect",
-      "Sintaxe inválida ou pendente para este desafio.",
+      "Ainda não está certo. Confira a sintaxe pedida.",
       true
     );
   }
@@ -289,21 +384,19 @@ userInput.addEventListener("input", () => {
 
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    // Se o usuário pressionar Shift + Enter, permite quebrar a linha normalmente
+    // Shift + Enter sempre quebra linha
     if (e.shiftKey) {
       return;
     }
 
-    // Pega o que está escrito até agora
     const val = userInput.value;
 
-    // Se o usuário estiver no meio de uma lista (começando com '-' ou '1.', '2.', etc.)
-    // o Enter apenas quebra a linha no celular para ele digitar o próximo item
+    // Se estiver digitando uma lista, Enter apenas quebra a linha
     if (val.startsWith("-") || /^\d+\./.test(val)) {
       return;
     }
 
-    // Se não for uma lista e for apenas uma linha normal, envia os dados
+    // Caso contrário, envia
     e.preventDefault();
     if (!btnSend.disabled) submitData();
   }
@@ -317,13 +410,17 @@ function submitData() {
   const val = userInput.value;
 
   if (state.currentStep === "naming") {
-    state.userName = val.trim();
+    const name = val.trim();
+    if (name.length < 2) return;
+    state.userName = name;
     localStorage.setItem("md_name", state.userName);
     addMsg("user", state.userName);
     userInput.value = "";
     introZezin();
     return;
   }
+
+  if (val.trim() === "") return;
 
   addMsg("user", val);
 
@@ -334,101 +431,116 @@ function submitData() {
     if (state.examIndex >= examQuestions.length) {
       showFinalResult();
     } else {
-      addMsg("bot", "Análise salva de forma segura! Próxima questão.");
+      addMsg("bot", "Resposta salva! Próxima questão...");
       setTimeout(loadExamQuestion, 600);
     }
-  } else {
-    const renderHtml = lessons[state.index].render(val);
-    addMsg("bot", `Renderização HTML resultante: ${renderHtml}`);
-    state.index++;
-    setTimeout(loadLesson, 1000);
+  } else if (state.currentStep === "learning") {
+    // Validação extra: só aceita resposta correta
+    const current = lessons[state.index];
+    if (current && current.regex.test(val)) {
+      const renderHtml = current.render(val);
+      addMsg("bot", `Isso aí! Veja como fica no HTML: ${renderHtml}`);
+      state.index++;
+      setTimeout(loadLesson, 1000);
+    } else {
+      addMsg(
+        "bot",
+        `Hmm, não ficou certo. Tente de novo! A sintaxe esperada é parecida com: <code>${current.hint}</code>`
+      );
+    }
   }
 
   userInput.value = "";
   userInput.style.height = "auto";
-}
-
-function startExam() {
-  state.currentStep = "exam";
-  state.examIndex = 0;
-  state.examAnswers = [];
-  statusLabel.textContent = "Avaliação Final";
-  addMsg(
-    "bot",
-    "🎯 <b>Chegamos à Prova Final!</b> Agora vamos avaliar seu conhecimento de forma autônoma sobre as 10 estruturas aprendidas. O resultado detalhado será computado e exibido apenas no encerramento. Boa sorte!"
-  );
-  setTimeout(loadExamQuestion, 1000);
-}
-
-function loadExamQuestion() {
-  userInput.value = "";
-
-  if (state.examAnswers[state.examIndex] !== undefined) {
-    userInput.value = state.examAnswers[state.examIndex];
-  }
-  userInput.style.height = "auto";
-  resetValidationState();
-
-  btnSkip.style.display = "none";
-  btnBack.style.display = state.examIndex > 0 ? "inline-flex" : "none";
-  navControls.style.display = "flex";
-
-  statusLabel.textContent = `Prova Q${state.examIndex + 1} de ${
-    examQuestions.length
-  }`;
-  addMsg("bot", examQuestions[state.examIndex].q);
-
-  userInput.dispatchEvent(new Event("input"));
 }
 
 function showFinalResult() {
   state.currentStep = "complete";
   navControls.style.display = "none";
-  statusLabel.textContent = "Concluído";
+  statusLabel.textContent = "Resultado Final";
 
   let finalScore = 0;
+  const resultItems = [];
+
   examQuestions.forEach((q, i) => {
-    if (q.regex.test(state.examAnswers[i] || "")) {
-      finalScore++;
-    }
+    const answer = state.examAnswers[i] || "";
+    const isCorrect = q.regex.test(answer);
+    if (isCorrect) finalScore++;
+
+    resultItems.push(`
+        <div class="exam-result-item">
+          <span class="exam-result-icon">${isCorrect ? "✅" : "❌"}</span>
+          <div class="exam-result-detail">
+            <b>${q.topic}</b>
+            ${
+              isCorrect
+                ? `<span class="exam-result-correct"> — Acertou!</span>`
+                : `<span class="exam-result-wrong"> — Errou</span><br>
+                 <span class="your-answer">Sua resposta: ${escapeHtml(
+                   answer
+                 )}</span><br>
+                 <span style="color:var(--success); font-family:monospace; font-size:0.85rem;">Correto: ${escapeHtml(
+                   q.expected
+                 )}</span>`
+            }
+          </div>
+        </div>
+      `);
   });
 
-  addMsg("bot", "🏆 <b>Exame concluído com sucesso!</b>");
   addMsg(
     "bot",
-    `<b>Resultado da Avaliação:</b> Você obteve <b>${finalScore} de ${examQuestions.length}</b> acertos.`
+    `<b>Resultado da Prova:</b> Você acertou <b>${finalScore} de ${examQuestions.length}</b>!`
+  );
+
+  addMsg(
+    "bot",
+    `<div style="margin-bottom: 4px;"><b>Detalhes:</b></div>${resultItems.join(
+      ""
+    )}`
   );
 
   if (finalScore === examQuestions.length) {
     addMsg(
       "bot",
-      "💥 Aproveitamento impecável! Conhecimento de Markdown consolidado em 100%."
+      `<img src="Zezin_Cuscuz.png" alt="Zezin te dando parabéns com um cuscuz" style="max-width:100%; border-radius:12px; margin-bottom:8px;"><br>Nota <b>10/10</b>! Você dominou o Markdown completamente. Toma um cuscuz pra comemorar!`
     );
   } else if (finalScore >= 7) {
     addMsg(
       "bot",
-      "Excelente rendimento! Você compreendeu muito bem a base e estrutura essencial do ecossistema."
+      "Muito bem! Você entendeu a maioria das estruturas. Revise os erros acima e logo chega nos 100%!"
     );
   } else if (finalScore >= 5) {
-    addMsg("bot", "Aprovado! Você domina boa parte das marcas estruturais.");
+    addMsg(
+      "bot",
+      "Bom resultado! Mas ainda dá pra melhorar. Que tal revisar as lições e tentar de novo?"
+    );
   } else {
     addMsg(
       "bot",
-      "Sugerimos reiniciar as lições interativas futuramente para fixar melhor algumas regras específicas de marcação."
+      "Não desanime! Markdown é prática. Reinicie as lições pelo botão no topo e tente novamente."
     );
   }
 
   addMsg(
     "bot",
-    `Muito obrigado por treinar com o meu sistema. Este projeto foi inteiramente estruturado por <b>Dalati Lacerda Azevedo</b>.`
+    `Obrigado por aprender comigo! Este projeto foi criado por <b>Dalati Lacerda Azevedo</b>.`
   );
   addMsg(
     "bot",
-    `Acompanhe outros projetos no Instagram: <a href="https://instagram.com/dalatidev" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">@dalatidev <i data-lucide="instagram" size="16"></i></a>`
+    `Veja mais projetos no Instagram: <a href="https://instagram.com/dalatidev" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">@dalatidev <i data-lucide="instagram" size="16"></i></a>`
   );
 
   lucide.createIcons();
   resetValidationState();
+  userInput.disabled = true;
+  btnSend.disabled = true;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
 }
 
 function setFeedback(type, text, isDisableButton) {
@@ -482,17 +594,18 @@ function applyTheme(t) {
 }
 
 document.getElementById("btn-reset").onclick = () => {
-  if (
-    confirm(
-      "Zezin vai reiniciar a conversa com você do início. Deseja continuar?"
-    )
-  ) {
+  if (confirm("Reiniciar tudo do começo? Seu progresso será apagado.")) {
     state.index = 0;
     state.examIndex = 0;
     state.examAnswers = [];
+    state.currentStep = "naming";
     localStorage.setItem("md_index", 0);
+    localStorage.removeItem("md_name");
+    state.userName = "";
     chatArea.innerHTML = "";
-    welcomeBack();
+    userInput.disabled = false;
+    userInput.value = "";
+    askName();
   }
 };
 
@@ -500,13 +613,13 @@ btnBack.onclick = () => {
   if (state.currentStep === "exam") {
     if (state.examIndex > 0) {
       state.examIndex--;
-      addMsg("bot", "↩️ Voltando para a questão anterior da prova...");
+      addMsg("bot", "Voltando para a questão anterior...");
       loadExamQuestion();
     }
   } else {
     if (state.index > 0) {
       state.index--;
-      addMsg("bot", "↩️ Voltando para a lição anterior...");
+      addMsg("bot", "Voltando para a lição anterior...");
       loadLesson();
     }
   }
@@ -515,7 +628,7 @@ btnBack.onclick = () => {
 btnSkip.onclick = () => {
   if (state.currentStep !== "exam") {
     state.index++;
-    addMsg("bot", "⏭️ Pulando desafio...");
+    addMsg("bot", "Pulando desafio...");
     loadLesson();
   }
 };
