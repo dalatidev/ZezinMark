@@ -528,7 +528,7 @@ function showFinalResult() {
   );
   addMsg(
     "bot",
-    `Veja mais projetos no meu site: <a href="dalatidev.com.br" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">dalatidev.com.br <i data-lucide="instagram" size="16"></i></a>`
+    `Veja mais projetos no meu site: <a href="https://dalatidev.com.br" target="_blank" class="prime-btn" style="margin-top:8px; text-decoration:none;">dalatidev.com.br <i data-lucide="instagram" size="16"></i></a>`
   );
 
   lucide.createIcons();
