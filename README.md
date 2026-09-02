@@ -5,7 +5,7 @@
   <p>
     <a href="https://zezinmark.dalatidev.com.br/"><img src="https://img.shields.io/badge/demo-online-brightgreen?style=for-the-badge" alt="Demo Online"></a>
     <img src="https://img.shields.io/badge/HTML-CSS-JS-blue?style=for-the-badge" alt="HTML CSS JS">
-    <img src="https://img.shields.io/badge/licença-MIT-yellow?style=for-the-badge" alt="Licença MIT">
+    <img src="https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge" alt="License MIT">
   </p>
 </div>
 
