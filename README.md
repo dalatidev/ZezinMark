@@ -25,7 +25,7 @@ Ao final das 10 lições, o usuário faz uma **prova** para testar o que aprende
 ## Funcionalidades
 
 - **10 lições interativas** cobrindo toda a sintaxe básica do Markdown.
-- **Validação em tempo real** — o campo só libera o envio quando a sintaxe está correta.
+- **Validacao em tempo real** — o campo só libera o envio quando a sintaxe está correta.
 - **Preview HTML** — cada resposta certa mostra como o Markdown vira HTML.
 - **Prova final** com 10 questões e resultado detalhado por questão.
 - **Tema claro/escuro** com persistência no navegador.
@@ -33,17 +33,17 @@ Ao final das 10 lições, o usuário faz uma **prova** para testar o que aprende
 - **100% responsivo** — funciona bem no celular e no desktop.
 - **Zero dependências de backend** — roda inteiramente no navegador.
 
-## Conteúdo Ensinado
+## Conteudo Ensinado
 
-| Lição | Tópico | Sintaxe |
+| Licao | Topico | Sintaxe |
 |:---:|---|---|
-| 1 | Títulos | `# Texto` |
+| 1 | Titulos | `# Texto` |
 | 2 | Negrito | `**texto**` |
-| 3 | Itálico | `*texto*` |
-| 4 | Citação | `> texto` |
+| 3 | Italico | `*texto*` |
+| 4 | Citacao | `> texto` |
 | 5 | Lista Ordenada | `1. item` |
-| 6 | Lista Não Ordenada | `- item` |
-| 7 | Código em Linha | `` `código` `` |
+| 6 | Lista Nao Ordenada | `- item` |
+| 7 | Codigo em Linha | `` `código` `` |
 | 8 | Linha Horizontal | `---` |
 | 9 | Links | `[texto](url)` |
 | 10 | Imagens | `![alt](url)` |
@@ -57,39 +57,39 @@ Acesse a versão hospedada: **[zezinmark.dalatidev.com.br](https://zezinmark.dal
 ### Rodar localmente
 
 ```bash
-# Clone o repositório
+# Clone o repositorio
 git clone https://github.com/seu-usuario/zezinmark.git
 
 # Entre na pasta
 cd zezinmark
 
-# Abra no navegador (qualquer uma das opções)
+# Abra no navegador (qualquer uma das opcoes)
 open index.html          # macOS
 xdg-open index.html      # Linux
 start index.html         # Windows
 ```
 
-Não precisa de servidor, npm, nem nenhuma instalação. É só abrir o `index.html`.
+Nao precisa de servidor, npm, nem nenhuma instalacao. E so abrir o `index.html`.
 
 ## Estrutura do Projeto
 
 ```
 zezinmark/
-├── index.html          # Página principal
+├── index.html          # Pagina principal
 ├── style.css           # Estilos (tema claro/escuro)
-├── script.js           # Lógica das lições, prova e chat
-├── zezin_ico.png       # Ícone do Zezin (favicon + navbar)
-├── Zezin_Cuscuz.png    # Imagem de parabéns (nota 10)
-├── LICENSE             # Licença MIT
+├── script.js           # Logica das licoes, prova e chat
+├── zezin_ico.png       # Icone do Zezin (favicon + navbar)
+├── Zezin_Cuscuz.png    # Imagem de parabens (nota 10)
+├── LICENSE             # Licenca MIT
 └── README.md
 ```
 
 ## Tecnologias
 
-- **HTML5** — estrutura semântica.
-- **CSS3** — variáveis CSS para temas, layout com Flexbox, `dvh` para mobile.
+- **HTML5** — estrutura semantica.
+- **CSS3** — variaveis CSS para temas, layout com Flexbox, `dvh` para mobile.
 - **JavaScript** — vanilla, sem frameworks.
-- **[Lucide Icons](https://lucide.dev)** — ícones via CDN.
+- **[Lucide Icons](https://lucide.dev)** — icones via CDN.
 - **[Inter](https://rsms.me/inter)** — tipografia via Google Fonts.
 
 ## Autor
@@ -99,6 +99,6 @@ Desenvolvido por **Dalati Lacerda Azevedo**.
 - Site: [dalatidev.com.br](https://dalatidev.com.br)
 - Instagram: [@dalatidev](https://instagram.com/dalatidev)
 
-## Licença
+## Licenca
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto esta sob a licenca MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
