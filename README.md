@@ -20,7 +20,7 @@ Ao final das 10 lições, o usuário faz uma **prova** para testar o que aprende
 
 <div align="center">
   <img src="Zezin_Cuscuz.png" alt="Zezin comemorando com cuscuz" width="300">
-  <p><em>Acerte tudo na prova e ganhe um cuscuz do Zezin!</em></p>
+  <p><em>Você tem a chance de ganhar um cuscuz do Zezin!</em></p>
 </div>
 
 ## Funcionalidades
