@@ -2,9 +2,8 @@
   <img src="zezin_ico.png" alt="Zezin" width="120">
   <h1>ZezinMark</h1>
   <p><strong>Aprenda Markdown de forma interativa com o Zezin — um chatbot nordestino que ensina na prática.</strong></p>
-
   <p>
-    <a href="https://zezinmark.vercel.app"><img src="https://img.shields.io/badge/demo-online-brightgreen?style=for-the-badge" alt="Demo Online"></a>
+    <a href="https://zezinmark.dalatidev.com.br/"><img src="https://img.shields.io/badge/demo-online-brightgreen?style=for-the-badge" alt="Demo Online"></a>
     <img src="https://img.shields.io/badge/HTML-CSS-JS-blue?style=for-the-badge" alt="HTML CSS JS">
     <img src="https://img.shields.io/badge/licença-MIT-yellow?style=for-the-badge" alt="Licença MIT">
   </p>
@@ -14,7 +13,7 @@
 
 ## Sobre o Projeto
 
-O **ZezinMark** é um site educativo que ensina a sintaxe básica de Markdown através de um chatbot chamado **Zezin**. A experiência funciona como uma conversa: o Zezin apresenta cada conceito, mostra um exemplo e propõe um desafio prático. O usuário digita a resposta em Markdown e vê o resultado renderizado em tempo real.
+O **ZezinMark** é um site educativo que ensina a sintaxe básica de Markdown por meio de um chatbot chamado **Zezin**. A experiência funciona como uma conversa: o Zezin apresenta cada conceito, mostra um exemplo e propõe um desafio prático. O usuário digita a resposta em Markdown e vê o resultado renderizado em tempo real.
 
 Ao final das 10 lições, o usuário faz uma **prova** para testar o que aprendeu, com resultado detalhado mostrando acertos, erros e as respostas corretas.
 
@@ -25,14 +24,14 @@ Ao final das 10 lições, o usuário faz uma **prova** para testar o que aprende
 
 ## Funcionalidades
 
-- **10 lições interativas** cobrindo toda a sintaxe básica do Markdown
-- **Validação em tempo real** — o campo só libera o envio quando a sintaxe está correta
-- **Preview HTML** — cada resposta certa mostra como o Markdown vira HTML
-- **Prova final** com 10 questões e resultado detalhado por questão
-- **Tema claro/escuro** com persistência no navegador
-- **Progresso salvo** — feche e volte de onde parou
-- **100% responsivo** — funciona bem no celular e no desktop
-- **Zero dependências de backend** — roda inteiramente no navegador
+- **10 lições interativas** cobrindo toda a sintaxe básica do Markdown.
+- **Validação em tempo real** — o campo só libera o envio quando a sintaxe está correta.
+- **Preview HTML** — cada resposta certa mostra como o Markdown vira HTML.
+- **Prova final** com 10 questões e resultado detalhado por questão.
+- **Tema claro/escuro** com persistência no navegador.
+- **Progresso salvo** — feche e volte de onde parou.
+- **100% responsivo** — funciona bem no celular e no desktop.
+- **Zero dependências de backend** — roda inteiramente no navegador.
 
 ## Conteúdo Ensinado
 
@@ -81,16 +80,17 @@ zezinmark/
 ├── script.js           # Lógica das lições, prova e chat
 ├── zezin_ico.png       # Ícone do Zezin (favicon + navbar)
 ├── Zezin_Cuscuz.png    # Imagem de parabéns (nota 10)
+├── LICENSE             # Licença MIT
 └── README.md
 ```
 
 ## Tecnologias
 
-- **HTML5** — estrutura semântica
-- **CSS3** — variáveis CSS para temas, layout com Flexbox, `dvh` para mobile
-- **JavaScript** — vanilla, sem frameworks
-- **[Lucide Icons](https://lucide.dev)** — ícones via CDN
-- **[Inter](https://rsms.me/inter)** — tipografia via Google Fonts
+- **HTML5** — estrutura semântica.
+- **CSS3** — variáveis CSS para temas, layout com Flexbox, `dvh` para mobile.
+- **JavaScript** — vanilla, sem frameworks.
+- **[Lucide Icons](https://lucide.dev)** — ícones via CDN.
+- **[Inter](https://rsms.me/inter)** — tipografia via Google Fonts.
 
 ## Autor
 
