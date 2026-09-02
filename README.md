@@ -53,7 +53,7 @@ Ao final das 10 lições, o usuário faz uma **prova** para testar o que aprende
 
 ### Acessar online
 
-Acesse a versão hospedada: **[zezinmark.vercel.app](https://zezinmark.vercel.app)**
+Acesse a versão hospedada: **[zezinmark.dalatidev.com.br](https://zezinmark.dalatidev.com.br/)**
 
 ### Rodar localmente
 
