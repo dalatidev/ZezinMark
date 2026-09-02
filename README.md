@@ -4,7 +4,9 @@
   <p><strong>Aprenda Markdown de forma interativa com o Zezin — um chatbot nordestino que ensina na prática.</strong></p>
   <p>
     <a href="https://zezinmark.dalatidev.com.br/"><img src="https://img.shields.io/badge/demo-online-brightgreen?style=for-the-badge" alt="Demo Online"></a>
-    <img src="https://img.shields.io/badge/HTML-CSS-JS-blue?style=for-the-badge" alt="HTML CSS JS">
+    <img src="https://img.shields.io/badge/HTML-orange?style=for-the-badge" alt="HTML">
+    <img src="https://img.shields.io/badge/CSS-blue?style=for-the-badge" alt="CSS">
+    <img src="https://img.shields.io/badge/JS-yellow?style=for-the-badge" alt="JS">
     <img src="https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge" alt="License MIT">
   </p>
 </div>
